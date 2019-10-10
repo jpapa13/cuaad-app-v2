@@ -17,10 +17,21 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
+      title: 'Eventos',
       url: '/list',
       icon: 'list'
+    },
+    {
+      title: 'Agenda',
+      url: '/agenda',
+      icon: 'book'
+    },
+    {
+      title: 'Busca tu aula',
+      url: '/lugares',
+      icon: 'locate'
     }
+
   ];
 
   constructor(
