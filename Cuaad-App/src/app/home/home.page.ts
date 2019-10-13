@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, NavController } from '@ionic/angular';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -9,7 +10,15 @@ import { ActionSheetController } from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor( public actionSheetController: ActionSheetController ) {}
+
+  constructor( public actionSheetController: ActionSheetController,
+               public navCtrl: NavController,
+               private domSanitizer: DomSanitizer ) {}
+
+
+    
+
+
   async presentActionSheet() {
     const actionsheet = await this.actionSheetController.create({
       header: 'Configuraciones',
@@ -25,3 +34,9 @@ export class HomePage {
     await actionsheet.present();
   }
 }
+
+
+
+
+
+
