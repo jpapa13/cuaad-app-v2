@@ -27,7 +27,7 @@ export class AppComponent {
       icon: 'book'
     },
     {
-      title: 'Busca tu aula',
+      title: 'Buscar tu aula',
       url: '/lugares',
       icon: 'locate'
     }

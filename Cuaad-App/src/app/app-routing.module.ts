@@ -9,14 +9,14 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
   },
   {
     path: 'list',
-    loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
+    loadChildren: () => import('./pages/list/list.module').then(m => m.ListPageModule)
   },
-  { path: 'agenda', loadChildren: './agenda/agenda.module#AgendaPageModule' },
-  { path: 'lugares', loadChildren: './lugares/lugares.module#LugaresPageModule' }
+  { path: 'lugares', loadChildren: './pages/lugares/lugares.module#LugaresPageModule' },
+  { path: 'agenda', loadChildren: './pages/agenda/agenda.module#AgendaPageModule' }
 ];
 
 @NgModule({
