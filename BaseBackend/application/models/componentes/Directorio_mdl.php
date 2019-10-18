@@ -11,6 +11,15 @@ class Directorio_mdl extends CI_Model{
         $this->db->from('area');
        $this->db->where('dentro_de_fk',$parent);
         return $this->db->get()->result();
+    }
+	
+	public function obtener_area_persona($parent)
+    {   
+		$this->db->select("ud.id, ud.nombre");
+		$this->db->from('usuario_detalle as ud');
+		$this->db->join('usuario_directorio AS u_d','u_d.usuario_detalle_fk = ud.id','inner');
+		$this->db->where('u_d.area_fk',$parent);
+        return $this->db->get()->result();
     }/*
     public function detalle($evento_id)
     {   

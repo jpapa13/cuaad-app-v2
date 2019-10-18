@@ -20,16 +20,16 @@ class Directorio extends REST_Controller {
 	}
 	public function recursivo($arreglo, $res)
 	{
-		//if(!empty($arreglo)){
-			foreach($arreglo as $d){
-				$res[$d->nombre] = array(
-					'id'=>$d->id,
-					'hoja'=>null
-				);
-				$aux = $this->Directorio_mdl->obtener_area($d->id);
-				$res[$d->nombre]['hoja'] = $this->recursivo($aux,$res[$d->nombre]['hoja']);
-			}
-		//}
+		foreach($arreglo as $d){
+			$personal = $this->Directorio_mdl->obtener_area_persona($d->id);
+			$res[$d->nombre] = array(
+				'id'=>$d->id,
+				'hoja'=>null,
+				'personal'=>$personal
+			);
+			$aux = $this->Directorio_mdl->obtener_area($d->id);
+			$res[$d->nombre]['hoja'] = $this->recursivo($aux,$res[$d->nombre]['hoja']);
+		}
 		return $res;
 	}
 	public function obtener_area_post(){
@@ -49,7 +49,22 @@ class Directorio extends REST_Controller {
                 'data'   => $this->form_validation->error_array()
             ], REST_Controller::HTTP_BAD_REQUEST);
         }else{
-			
+			$respuesta = $this->Directorio_mdl->obtener_area($this->post('parent'));
+            if($respuesta !== FALSE){
+				$this->response([
+                    'status' => TRUE,
+                    'data'   => $respuesta
+                ], REST_Controller::HTTP_OK);
+            }else{
+                $this->response([
+                    'status' => FALSE,
+                    'data'   => 'area no encontrada'
+                ], REST_Controller::HTTP_NOT_ACCEPTABLE);
+            }
+        }    
+    }
+	public function obtener_area_todos_get(){
+			$raiz = 5; //id de nodo raiz del árbol de directorio
             $respuesta = $this->Directorio_mdl->obtener_area($this->post('parent'));
             if($respuesta !== FALSE){
 				$res = [];
@@ -57,6 +72,69 @@ class Directorio extends REST_Controller {
 				$this->response([
                     'status' => TRUE,
                     'data'   => $respuestaR
+                ], REST_Controller::HTTP_OK);
+            }else{
+                $this->response([
+                    'status' => FALSE,
+                    'data'   => 'area no encontrada'
+                ], REST_Controller::HTTP_NOT_ACCEPTABLE);
+            }
+   
+    }
+	public function obtener_persona_post(){
+        $rules = array(
+            array(
+                'field'=>'id_persona',
+                'rules'=>'required|numeric',
+                'errors'=>array(
+                    'required'=>'El campo id_persona debe ser ingresado',
+					'numeric'=>'El campo id_persona debe ser numérico'
+                )
+            )
+        );
+        if ($this->request_lib->validar($this->post(),$rules) == FALSE)
+        {
+            $this->response([
+                'status' => FALSE,
+                'data'   => $this->form_validation->error_array()
+            ], REST_Controller::HTTP_BAD_REQUEST);
+        }else{
+			$respuesta = $this->Directorio_mdl->obtener_persona($this->post('persona'));
+            if($respuesta !== FALSE){
+				$this->response([
+                    'status' => TRUE,
+                    'data'   => $respuesta
+                ], REST_Controller::HTTP_OK);
+            }else{
+                $this->response([
+                    'status' => FALSE,
+                    'data'   => 'persona no encontrada'
+                ], REST_Controller::HTTP_NOT_ACCEPTABLE);
+            }
+        }    
+    }
+	public function obtener_area_persona_post(){
+        $rules = array(
+            array(
+                'field'=>'parent',
+                'rules'=>'required',
+                'errors'=>array(
+                    'required'=>'El campo parent debe ser ingresado'
+                )
+            )
+        );
+        if ($this->request_lib->validar($this->post(),$rules) == FALSE)
+        {
+            $this->response([
+                'status' => FALSE,
+                'data'   => $this->form_validation->error_array()
+            ], REST_Controller::HTTP_BAD_REQUEST);
+        }else{
+			$respuesta = $this->Directorio_mdl->obtener_area_persona($this->post('parent'));
+            if($respuesta !== FALSE){
+				$this->response([
+                    'status' => TRUE,
+                    'data'   => $respuesta
                 ], REST_Controller::HTTP_OK);
             }else{
                 $this->response([
