@@ -1,0 +1,24 @@
+[
+    {
+      "icon": "home",
+      "name": "Home",
+      "redirecTo": "/inicio"
+    },
+    {
+      "icon": "list",
+      "name": "Eventos",
+      "redirecTo": "/eventos"
+    },
+    {
+      "icon": "book",
+      "name": "Agenda",
+      "redirecTo": "/agenda"
+    },
+    {
+      "icon": "locate",
+      "name": "Buscar tu aula",
+      "redirecTo": "/lugares"
+    }
+
+
+  ]

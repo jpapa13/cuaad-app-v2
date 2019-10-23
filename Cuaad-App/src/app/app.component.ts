@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Componente } from './interfaces/interfaces';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,29 +12,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  public appPages = [
-    {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'Eventos',
-      url: '/list',
-      icon: 'list'
-    },
-    {
-      title: 'Agenda',
-      url: '/agenda',
-      icon: 'book'
-    },
-    {
-      title: 'Buscar tu aula',
-      url: '/lugares',
-      icon: 'locate'
-    }
 
-  ];
+  componetes: Observable<Componente[]>;
 
   constructor(
     private platform: Platform,
@@ -49,3 +30,4 @@ export class AppComponent {
     });
   }
 }
+

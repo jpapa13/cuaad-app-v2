@@ -4,19 +4,13 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'inicio',
     pathMatch: 'full'
   },
-  {
-    path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
-  },
-  {
-    path: 'list',
-    loadChildren: () => import('./pages/list/list.module').then(m => m.ListPageModule)
-  },
+  { path: 'inicio', loadChildren: './pages/inicio/inicio.module#InicioPageModule' },
   { path: 'lugares', loadChildren: './pages/lugares/lugares.module#LugaresPageModule' },
-  { path: 'agenda', loadChildren: './pages/agenda/agenda.module#AgendaPageModule' }
+  { path: 'agenda', loadChildren: './pages/agenda/agenda.module#AgendaPageModule' },
+  { path: 'eventos', loadChildren: './pages/eventos/eventos.module#EventosPageModule' }
 ];
 
 @NgModule({

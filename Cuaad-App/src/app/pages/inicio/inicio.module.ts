@@ -1,25 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
-import { ListPage } from './list.page';
+import { IonicModule } from '@ionic/angular';
+
+import { InicioPage } from './inicio.page';
 import { ComponentsModule } from '../../components/components.module';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: InicioPage
+  }
+];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    ComponentsModule,
     IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: ListPage
-      }
-    ]),
-    ComponentsModule
+    RouterModule.forChild(routes)
   ],
-  declarations: [ListPage]
+  declarations: [InicioPage]
 })
-export class ListPageModule {}
+export class InicioPageModule {}
