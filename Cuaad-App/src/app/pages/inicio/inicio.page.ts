@@ -25,7 +25,7 @@ export class InicioPage {
           this.http.post(this.url + 'componentes/lugares/galeria', this.galeriaHuenti, {}).then((Response) => {
             this.archivo = Response.data;
             console.log(Response);
-            if (Response.data.status) {
+            if (Response.data.status === true) {
 
               this.galeriaHuenti.archivo = Response.data;
 
