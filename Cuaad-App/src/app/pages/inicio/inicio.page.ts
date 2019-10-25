@@ -22,16 +22,17 @@ export class InicioPage {
           this.archivo = [];
           this.galeriaHuenti = new Galeria ( 'Huentitan', 'imagen' );
 
-          this.http.post(this.url + 'componentes/lugares/galeria', this.galeriaHuenti, {}).then((Response) => {
-            this.archivo = Response.data;
+          this.http.post(this.url + 'componentes/lugares/galeria', this.galeriaHuenti, {}).then((Response:any) => {
+            this.archivo = JSON.parse(Response.data);
             console.log(Response);
             if (Response.data.status === true) {
-
-              this.galeriaHuenti.archivo = Response.data;
-
+            if (this.archivo["status"] === true) {
+              console.log("Respuesta satisfactoria");
+              this.galeriaHuenti.archivo = this.archivo["data"];
+              console.log(this.galeriaHuenti.archivo);
             } else {
-              console.log(Response.data);
-
+              console.log("Error:");
+              console.log(this.archivo["data"]);
             }
 
           });
