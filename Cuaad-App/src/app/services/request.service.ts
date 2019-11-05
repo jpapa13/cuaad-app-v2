@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment.prod';
-import { Observable } from 'rxjs';
-import { HTTP } from '@ionic-native/http/ngx';
 import { Componente } from '../interfaces/interfaces';
-
+import { Galeria } from '../clases/galeria';
 
 
 @Injectable({
@@ -12,10 +10,11 @@ import { Componente } from '../interfaces/interfaces';
 })
 export class RequestService {
   public option: any;
-  public URL = environment.url;
+  private URL = environment.url;
+  public  url = 'http://localhost/Cuaad-App/cuaad-app-v2/BaseBackend/index.php/';
 
-  constructor( private http: HTTP,
-               private https: HttpClient ) {
+
+  constructor( private https: HttpClient ) {
     this.option = {
       headers: new HttpHeaders({
         ' content_Type ': 'BaseBackend/applicaction/json',
@@ -26,5 +25,14 @@ export class RequestService {
       getMnuOpts() {
         return this.https.get<Componente[]>('/assets/data/menu.json');
       }
+
+
+      getAllBanners(galeriaHuenti: Galeria) {
+
+          const path =  this.url + 'componentes/lugares/galeria';
+          return this.https.post(path, galeriaHuenti, {} );
+
+      }
+
 }
 

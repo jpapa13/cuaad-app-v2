@@ -19,24 +19,27 @@ export class InicioPage {
   constructor( private request: RequestService,
                private http: HTTP ) {
 
-          this.archivo = [];
-          this.galeriaHuenti = new Galeria ( 'Huentitan', 'imagen' );
-
-          this.http.post(this.url + 'componentes/lugares/galeria', this.galeriaHuenti, {}).then((Response:any) => {
-            this.archivo = JSON.parse(Response.data);
-            console.log(Response);
-            if (Response.data.status === true) {
-            if (this.archivo["status"] === true) {
-              console.log("Respuesta satisfactoria");
-              this.galeriaHuenti.archivo = this.archivo["data"];
-              console.log(this.galeriaHuenti.archivo);
-            } else {
-              console.log("Error:");
-              console.log(this.archivo["data"]);
-            }
-
-          });
+              this.getAllBanners();
   }
+  getAllBanners() {
+    this.galeriaHuenti = new Galeria ( 'Huentitan', 'imagen' );
+    this.request.getAllBanners(this.galeriaHuenti)
+    .subscribe((Response: any) => {
+      console.log(Response);
+
+      if (Response.status === true) {
+        console.log("Respuesta satisfactoria");
+        this.galeriaHuenti.archivo = Response.data;
+        console.log(this.galeriaHuenti.archivo);
+
+      } else {
+        console.log("Error:");
+        console.log(Response);
+      }
+
+    });
+  }
+
 
 
 

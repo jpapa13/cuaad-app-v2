@@ -1,24 +1,10 @@
-    
-    <app-headers titulo="Cuaad App"></app-headers>
-
-    <ion-content>
-      
-      <ion-slides mode="ios" pager="ios" scrollbar="ios" >
-      <ion-slide>
-        
+<app-headers titulo="Cuaad-app"></app-headers>
+  <ion-content>    
+    <ion-slides mode="ios" pager="ios" scrollbar="ios" >
+      <ion-slide *ngFor="let item of galeriaHuenti.archivo">
         <div class="slide-img-padding" > 
-          
-          
-           <!--  <img *ngFor="let item of galeriaHuenti.archivo" [src]= item alt=""> -->
-           <ion-label >
-             {{this.galeriaHuenti.archivo}}
-           </ion-label>
-          </div>
-        </ion-slide>
-    
-        </ion-slides>
-    
-    
-    
-    </ion-content>
-    
+          <img   src={{item.ruta}}>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </ion-content>
