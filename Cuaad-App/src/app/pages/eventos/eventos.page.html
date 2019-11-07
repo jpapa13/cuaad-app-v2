@@ -1,5 +1,12 @@
 <app-headers titulo="Eventos"></app-headers>
 
 <ion-content>
-
+	<ion-slides mode="ios" pager="ios" scrollbar="ios" >
+      <ion-slide *ngFor="let item of galeria.archivo">
+        <div class="slide-img-padding"> 
+          <img   src={{item.ruta}}>
+        </div>
+      </ion-slide>
+    </ion-slides>
 </ion-content>
+  

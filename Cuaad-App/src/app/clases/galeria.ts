@@ -8,5 +8,6 @@
     constructor(sede, tipo) {
         this.sede = sede;
         this.tipo = tipo;
+		this.archivo = [];
     }
 }

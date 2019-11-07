@@ -26,13 +26,15 @@ export class RequestService {
         return this.https.get<Componente[]>('/assets/data/menu.json');
       }
 
-
-      getAllBanners(galeriaHuenti: Galeria) {
-
+      getBanners(galeria: Galeria) {
           const path =  this.url + 'componentes/lugares/galeria';
-          return this.https.post(path, galeriaHuenti, {} );
-
+          return this.https.post(path, galeria, {} );
       }
+	  
+	  getEventoBanners(galeria: Galeria){
+		  const path =  this.url + 'componentes/eventos/banners';
+          return this.https.post(path, galeria, {} );
+	  }
 
 }
 
