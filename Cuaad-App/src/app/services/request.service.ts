@@ -30,11 +30,11 @@ export class RequestService {
           const path =  this.url + 'componentes/lugares/galeria';
           return this.https.post(path, galeria, {} );
       }
-	  
-	  getEventoBanners(galeria: Galeria){
-		  const path =  this.url + 'componentes/eventos/banners';
+
+      getEventoBanners(galeria: Galeria){
+          const path =  this.url + 'componentes/eventos/banners';
           return this.https.post(path, galeria, {} );
-	  }
+      }
 
 }
 

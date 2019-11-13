@@ -1,12 +1,24 @@
 <app-headers titulo="Eventos"></app-headers>
 
 <ion-content>
-	<ion-slides mode="ios" pager="ios" scrollbar="ios" >
-      <ion-slide *ngFor="let item of galeria.archivo">
-        <div class="slide-img-padding"> 
-          <img   src={{item.ruta}}>
+	<ion-slides  class="slide-img-padding" pager="ios">
+      <ion-slide  *ngFor="let item of galeria.archivo">
+        <div> 
+          <img   src={{item.ruta}} (click)="verDetalle()">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+              <ion-card-title>Card Title</ion-card-title>
+            </ion-card-header>
+          </ion-card>
         </div>
       </ion-slide>
     </ion-slides>
+
+      <ion-button color="success"> <ion-icon name="checkmark-circle"></ion-icon></ion-button>
+      <ion-button color="danger"> <ion-icon name="close" ></ion-icon></ion-button>
+      <ion-button (click)="verDetalle()" > <ion-icon name="information-circle-outline" ></ion-icon> </ion-button>
+      <ion-button expand="block" routerLink ="/detalle-evento">Ver Todos</ion-button>
+
+
 </ion-content>
-  

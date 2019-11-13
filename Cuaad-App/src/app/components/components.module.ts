@@ -4,13 +4,18 @@ import { HeadersComponent } from './headers/headers.component';
 import { IonicModule } from '@ionic/angular';
 import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
+import { DetalleComponent } from './detalle/detalle.component';
 
 
 
 @NgModule({
+  entryComponents: [
+    DetalleComponent
+  ],
   declarations: [
     HeadersComponent,
-    MenuComponent
+    MenuComponent,
+    DetalleComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +24,8 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     HeadersComponent,
-    MenuComponent
+    MenuComponent,
+    DetalleComponent
   ]
 })
 export class ComponentsModule { }
