@@ -35,6 +35,10 @@ export class RequestService {
           const path =  this.url + 'componentes/eventos/banners';
           return this.https.post(path, galeria, {} );
       }
+    getEventoDetalle(evento: any){
+		  const path =  this.URL + 'componentes/Eventos/detalle';
+          return this.https.post(path, evento, {} );
+    }
 
 }
 
