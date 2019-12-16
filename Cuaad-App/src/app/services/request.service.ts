@@ -11,7 +11,7 @@ import { Galeria } from '../clases/galeria';
 export class RequestService {
   public option: any;
   private URL = environment.url;
-  public  url = 'http://localhost/Cuaad-App/cuaad-app-v2/BaseBackend/index.php/';
+  //public  url = 'http://localhost/cuaad-app-v2/BaseBackend/index.php/';
 
 
   constructor( private https: HttpClient ) {
@@ -26,15 +26,15 @@ export class RequestService {
         return this.https.get<Componente[]>('/assets/data/menu.json');
       }
 
-      getBanners(galeria: Galeria) {
-          const path =  this.url + 'componentes/lugares/galeria';
+    getBanners(galeria: Galeria) {
+          const path =  this.URL + 'componentes/lugares/galeria';
           return this.https.post(path, galeria, {} );
       }
-
-      getEventoBanners(galeria: Galeria){
-          const path =  this.url + 'componentes/eventos/banners';
+	  
+	  getEventoBanners(galeria: Galeria){
+		  const path =  this.URL + 'componentes/eventos/banners';
           return this.https.post(path, galeria, {} );
-      }
+    }
     getEventoDetalle(evento: any){
 		  const path =  this.URL + 'componentes/Eventos/detalle';
           return this.https.post(path, evento, {} );
