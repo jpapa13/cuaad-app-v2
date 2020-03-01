@@ -13,8 +13,9 @@ export class HorarioComponent implements OnInit {
     nombre2: 'AlaNorte'
   }; */
 
-  css = 'Posgrados';
-
+/*TODO: cargar edificios en la base de datos
+  TODO: Carcar aula y maestro de la base de datos
+*/
   clase = [
     'Posgrados', 'AlaNorte'
   ];
