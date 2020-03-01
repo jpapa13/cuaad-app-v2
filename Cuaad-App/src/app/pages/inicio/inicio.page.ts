@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
 import { Galeria } from '../../clases/galeria';
-import { HTTP } from '@ionic-native/http/ngx';
+
 
 import { DetalleComponent } from '../../components/detalle/detalle.component';
 import { ModalController } from '@ionic/angular';
@@ -22,7 +22,6 @@ export class InicioPage {
 // public  url = '192.168.64.2/cuaad-app-v2/BaseBackend/index.php/';
 
   constructor( private request: RequestService,
-               private http: HTTP,
                private modalCtrl: ModalController ) {
               this.galeriaHuenti = new Galeria ( 'Huentitan', 'imagen' );
               this.galeriaMusica = new Galeria ( 'Música', 'imagen' );

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HorarioComponent } from '../../components/horario/horario.component';
 
 @Component({
   selector: 'app-agenda',

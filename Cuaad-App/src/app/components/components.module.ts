@@ -5,6 +5,8 @@ import { IonicModule } from '@ionic/angular';
 import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { DetalleComponent } from './detalle/detalle.component';
+import { HorarioComponent } from './horario/horario.component';
+
 
 
 
@@ -15,7 +17,8 @@ import { DetalleComponent } from './detalle/detalle.component';
   declarations: [
     HeadersComponent,
     MenuComponent,
-    DetalleComponent
+    DetalleComponent,
+    HorarioComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +28,8 @@ import { DetalleComponent } from './detalle/detalle.component';
   exports: [
     HeadersComponent,
     MenuComponent,
-    DetalleComponent
+    DetalleComponent,
+    HorarioComponent
   ]
 })
 export class ComponentsModule { }
