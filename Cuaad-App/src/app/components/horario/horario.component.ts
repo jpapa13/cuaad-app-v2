@@ -30,7 +30,7 @@ export class HorarioComponent implements OnInit {
 
         break;
 
-      default:  
+      default:
         break;
     };
   }
@@ -38,6 +38,6 @@ export class HorarioComponent implements OnInit {
 constructor() {
 
    }
-
+ngOnInit;
 
 }

@@ -1,4 +1,46 @@
 <app-headers titulo="busca tu aula"></app-headers>
-<ion-content>
 
+<ion-content>
+    <ion-row>
+        <ion-col>
+            <ion-list>
+                <ion-item>
+                    1
+                </ion-item>
+            </ion-list>
+        </ion-col>
+
+        <ion-col size="5">
+            <ion-list cdkDropList [cdkDropListData]="listaUno" [cdkDropListConnectedTo]=" [] " (cdkDropListDropped)="drop($event) ">
+                <ion-item *ngFor="let item of listaUno " cdkDrag>
+                    {{ item }}
+                </ion-item>
+            </ion-list>
+        </ion-col>
+
+        <ion-col>
+            <ion-list>
+                <ion-item>
+                    1
+                </ion-item>
+            </ion-list>
+        </ion-col>
+
+        <ion-col size="5 ">
+            <ion-list cdkDropList [cdkDropListData]="listaDos " [cdkDropListConnectedTo]="[] " (cdkDropListDropped)="drop($event) ">
+                <ion-item *ngFor="let item of listaDos " cdkDrag>
+                    {{ item }}
+                </ion-item>
+            </ion-list>
+        </ion-col>
+
+        <ion-col size=" ">
+            <ion-list>
+                <ion-item>
+
+                </ion-item>
+            </ion-list>
+        </ion-col>
+
+    </ion-row>
 </ion-content>

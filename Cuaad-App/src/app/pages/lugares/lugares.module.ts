@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { LugaresPage } from './lugares.page';
 import { ComponentsModule } from '../../components/components.module';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    ComponentsModule
+    ComponentsModule,
+    DragDropModule
   ],
   declarations: [LugaresPage]
 })

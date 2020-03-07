@@ -6,6 +6,7 @@ import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { DetalleComponent } from './detalle/detalle.component';
 import { HorarioComponent } from './horario/horario.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 
@@ -23,7 +24,8 @@ import { HorarioComponent } from './horario/horario.component';
   imports: [
     CommonModule,
     IonicModule,
-    RouterModule
+    RouterModule,
+    DragDropModule
   ],
   exports: [
     HeadersComponent,

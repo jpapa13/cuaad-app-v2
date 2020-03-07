@@ -9,7 +9,7 @@
           <ion-card [ngClass]="[edificio] + [fondoCard]">
             <ion-card-header >
               <ion-text [ngClass]="[edificio] + [numAula]"> {{item}}  </ion-text>
-              <ion-item [ngClass]="[edificio] + [fondoMaestro]" >
+              <ion-item [ngClass]="[edificio] + [fondoMaestro]" cdkDrag class="caja">
                 <ion-label [ngClass]="[edificio] + [letraMaestro]">
                   Maestro: 
                 </ion-label>
