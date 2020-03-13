@@ -141,6 +141,11 @@ $route['componentes/eventos/imagenes']['POST'] = 'componentes/Eventos/imagenes';
 
 //DIRECTORIO
 $route['componentes/directorio/area/obtener']['POST'] = 'componentes/Directorio/obtener_area';
+$route['componentes/directorio/area/obtener_todos']['GET'] = 'componentes/Directorio/obtener_area_todos';
+$route['componentes/directorio/area/persona/obtener']['POST'] = 'componentes/Directorio/obtener_area_persona';
+
+//HORARIOS
+$route['componentes/horarios']['GET'] = 'componentes/Horarios/todos';
 
 //CATALOGOS
 $route['catalogos/carreras']['GET'] = 'catalogos/Carrera/todos';
