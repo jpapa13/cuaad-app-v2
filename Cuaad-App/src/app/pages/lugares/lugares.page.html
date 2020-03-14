@@ -11,34 +11,24 @@
         </ion-col>
 
         <ion-col size="5">
-            <ion-list cdkDropList [cdkDropListData]="listaUno" [cdkDropListConnectedTo]=" [] " (cdkDropListDropped)="drop($event) ">
-                <ion-item *ngFor="let item of listaUno " cdkDrag>
-                    {{ item }}
-                </ion-item>
-            </ion-list>
-        </ion-col>
+            <ion-list cdkDropList #firstList="cdkDropList" [cdkDropListData]="listaUno" [cdkDropListConnectedTo]=" [secondList] " (cdkDropListDropped)="drop($event) ">
 
-        <ion-col>
-            <ion-list>
-                <ion-item>
-                    1
-                </ion-item>
+                <ion-card *ngFor="let item of listaUno " cdkDrag>
+                    <ion-card-content>
+                        {{ item }}
+                    </ion-card-content>
+                </ion-card>
             </ion-list>
         </ion-col>
 
         <ion-col size="5 ">
-            <ion-list cdkDropList [cdkDropListData]="listaDos " [cdkDropListConnectedTo]="[] " (cdkDropListDropped)="drop($event) ">
-                <ion-item *ngFor="let item of listaDos " cdkDrag>
-                    {{ item }}
-                </ion-item>
-            </ion-list>
-        </ion-col>
+            <ion-list cdkDropList #secondList="cdkDropList" [cdkDropListData]="listaDos " [cdkDropListConnectedTo]="[firstList] " (cdkDropListDropped)="drop($event) ">
 
-        <ion-col size=" ">
-            <ion-list>
-                <ion-item>
-
-                </ion-item>
+                <ion-card *ngFor="let item of listaDos " cdkDrag>
+                    <ion-card-content>
+                        {{ item }}
+                    </ion-card-content>
+                </ion-card>
             </ion-list>
         </ion-col>
 
