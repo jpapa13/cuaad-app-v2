@@ -18,19 +18,36 @@ export class LugaresPage implements OnInit {
 
   drop(event: CdkDragDrop<string[]>) {
     console.log('evento: ', event);
-
     if (event.previousContainer === event.container) {
-      moveItemInArray(
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
-
+        moveItemInArray(
+          event.container.data,
+          event.previousIndex,
+          event.currentIndex
+        );
+        if(event.currentIndex < event.previousIndex){
+            moveItemInArray(
+              event.container.data,
+              event.currentIndex+1,
+              event.previousIndex
+            );
+        }else if(event.currentIndex > event.previousIndex){        
+            moveItemInArray(
+              event.container.data,
+              event.currentIndex-1,
+              event.previousIndex
+            );
+         }
     } else {
-      transferArrayItem(event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex);
+        transferArrayItem(event.previousContainer.data,
+          event.container.data,
+          event.previousIndex,
+          event.currentIndex);
+      
+      transferArrayItem(event.container.data,
+        event.previousContainer.data,
+        event.currentIndex+1,
+        event.previousIndex
+        )
     }
   }
 
