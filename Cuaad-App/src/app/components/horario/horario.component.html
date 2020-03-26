@@ -1,17 +1,15 @@
-  <ion-grid
-  *ngFor="let edificio of clase">
-  <ion-title>{{edificio}}</ion-title>
+<ion-grid
+  *ngFor="let edificio of edificios">
+  <ion-title>{{edificio[0]}}</ion-title>
     <ion-row>
       <ion-col size="12" size-xl="3" size-lg="4" size-md="4" size-sm="6"
-      *ngFor="let item of [1,2,3,4,5,6,7,8,9,10]">
-        
-          
-          <ion-card [ngClass]="[edificio] + [fondoCard]">
+      *ngFor="let aula of edificio[1]">        
+          <ion-card [ngClass]="[aula.clase] + [fondoCard]">
             <ion-card-header >
-              <ion-text [ngClass]="[edificio] + [numAula]"> {{item}}  </ion-text>
-              <ion-item [ngClass]="[edificio] + [fondoMaestro]" cdkDrag class="caja">
-                <ion-label [ngClass]="[edificio] + [letraMaestro]">
-                  Maestro: 
+              <ion-text [ngClass]="[aula.clase] + [numAula]"> {{aula.nombre}}  </ion-text>
+              <ion-item [ngClass]="[aula.clase] + [fondoMaestro]" >
+                <ion-label [ngClass]="[aula.clase] + [letraMaestro]">
+                  {{aula.profesor}}
                 </ion-label>
               </ion-item>
             </ion-card-header>   
