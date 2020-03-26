@@ -12,7 +12,6 @@
 
         <ion-col size="5">
             <ion-list cdkDropList #firstList="cdkDropList" [cdkDropListData]="listaUno" [cdkDropListConnectedTo]=" [secondList] " (cdkDropListDropped)="drop($event) ">
-
                 <ion-card *ngFor="let item of listaUno " cdkDrag>
                     <ion-card-content>
                         {{ item }}
@@ -23,7 +22,6 @@
 
         <ion-col size="5 ">
             <ion-list cdkDropList #secondList="cdkDropList" [cdkDropListData]="listaDos " [cdkDropListConnectedTo]="[firstList] " (cdkDropListDropped)="drop($event) ">
-
                 <ion-card *ngFor="let item of listaDos " cdkDrag>
                     <ion-card-content>
                         {{ item }}
@@ -31,6 +29,5 @@
                 </ion-card>
             </ion-list>
         </ion-col>
-
     </ion-row>
 </ion-content>
