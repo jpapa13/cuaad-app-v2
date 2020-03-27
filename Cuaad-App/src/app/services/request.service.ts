@@ -35,6 +35,9 @@ export class RequestService {
           const path =  this.url + 'componentes/eventos/banners';
           return this.https.post(path, galeria, {} );
       }
-
+      getAulas(){
+        const path =  this.url + 'componentes/horarios';
+        return this.https.get(path);
+    }
 }
 
