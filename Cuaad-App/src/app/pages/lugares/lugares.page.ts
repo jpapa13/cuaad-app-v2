@@ -71,7 +71,7 @@ export class LugaresPage implements OnInit {
             event.previousIndex,
             event.currentIndex+1
           );
-          this.listaUno.splice(event.currentIndex,0,'Vacio')
+          this.listaUno.splice(event.previousIndex,0,'Vacio')
         }
       }else{ // del segundo al primero
         console.log('segundo')
