@@ -1,28 +1,41 @@
 <app-headers titulo="busca tu aula"></app-headers>
 
 <ion-content>
-    <ion-row>
+    <ion-row>      
         <ion-col>
+             AULAS
             <ion-list>
                 <ion-item>
                     1
                 </ion-item>
+                <ion-item>
+                    2
+                </ion-item>
+                <ion-item>
+                    3
+                </ion-item>
+                <ion-item>
+                    4
+                </ion-item>
+                <ion-item>
+                    5
+                </ion-item>
             </ion-list>
         </ion-col>
-
         <ion-col size="5">
+            PROFE
             <ion-list cdkDropList #firstList="cdkDropList" [cdkDropListData]="listaUno" [cdkDropListConnectedTo]=" [secondList] " (cdkDropListDropped)="drop($event) ">
-                <ion-card *ngFor="let item of listaUno " cdkDrag>
+                <ion-card *ngFor="let item of listaUno" cdkDrag [cdkDragDisabled]="item == 'Vacio' ? true : null">
                     <ion-card-content>
-                        {{ item }}
+                        {{ item }} 
                     </ion-card-content>
                 </ion-card>
             </ion-list>
         </ion-col>
-
         <ion-col size="5 ">
+            PROFE SIN AULA
             <ion-list cdkDropList #secondList="cdkDropList" [cdkDropListData]="listaDos " [cdkDropListConnectedTo]="[firstList] " (cdkDropListDropped)="drop($event) ">
-                <ion-card *ngFor="let item of listaDos " cdkDrag>
+                <ion-card *ngFor="let item of listaDos; index as i" cdkDrag [cdkDragDisabled]="i == 0 ? true : null">
                     <ion-card-content>
                         {{ item }}
                     </ion-card-content>

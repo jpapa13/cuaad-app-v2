@@ -33,13 +33,23 @@ export class LugaresPage implements OnInit {
         event.previousIndex,
         event.currentIndex
       );
-      if (event.currentIndex < event.previousIndex) { //de arriba para abajo
-        moveItemInArray(
-          event.container.data,
-          event.currentIndex + 1,
-          event.previousIndex
-        );
-      } else if (event.currentIndex > event.previousIndex) { //abajo pa arriba
+      if (event.currentIndex < event.previousIndex) { //de abajo pa para arriba
+         if(event.previousContainer.data == this.listaDos && event.currentIndex == 0){//Saca al profe en segunda lista
+          moveItemInArray(
+            event.container.data,
+            event.currentIndex - 1,
+            event.previousIndex+1
+          );
+          console.log('NUEVA REGLA')
+        }else{
+          moveItemInArray(
+            event.container.data,
+            event.currentIndex + 1,
+            event.previousIndex
+          );
+          console.log('ELSE')
+        }
+      } else if (event.currentIndex > event.previousIndex) { //arriba pa abajo
         moveItemInArray(
           event.container.data,
           event.currentIndex - 1,
