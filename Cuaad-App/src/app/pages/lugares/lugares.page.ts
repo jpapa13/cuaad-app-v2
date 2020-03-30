@@ -113,23 +113,5 @@ export class LugaresPage implements OnInit {
 
 
 
-    /*for (let i = 0; i < this.listaDos.length; i++) {
-      if (this.listaDos[i] === this.espacio) {
-        this.listaDos.splice(i, 1);
-      }
-
-    }*/
-
-    /*for (let vacio = 0; vacio < this.listaUno.length; vacio++){
-      if (this.listaUno[vacio] === this.espacio) {
-        this.listaUno.splice(this.listaDos[vacio], 1 , this.listaUno.toString[vacio]);
-      }
-    }*/
   }
 }
-
-
-
-
-
-
