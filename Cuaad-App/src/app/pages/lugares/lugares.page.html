@@ -5,21 +5,11 @@
         <ion-col>
              AULAS
             <ion-list>
-                <ion-item>
-                    1
-                </ion-item>
-                <ion-item>
-                    2
-                </ion-item>
-                <ion-item>
-                    3
-                </ion-item>
-                <ion-item>
-                    4
-                </ion-item>
-                <ion-item>
-                    5
-                </ion-item>
+                <ion-card *ngFor="let item of [1,2,3,4,5,6,7,8,9,10]">
+                    <ion-card-content>
+                        {{item}}
+                    </ion-card-content>
+                </ion-card>
             </ion-list>
         </ion-col>
         <ion-col size="5">

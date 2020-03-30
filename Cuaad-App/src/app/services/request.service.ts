@@ -11,7 +11,7 @@ import { Galeria } from '../clases/galeria';
 export class RequestService {
   public option: any;
   private URL = environment.url;
-  public  url = 'http://localhost/Cuaad-App/cuaad-app-v2/BaseBackend/index.php/';
+  public  url = 'http://localhost/cuaad-app-v2/BaseBackend/index.php/';
 
 
   constructor( private https: HttpClient ) {

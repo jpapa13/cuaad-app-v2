@@ -1,142 +1,309 @@
-.caja {
-
-  color: rgba(0, 0, 0, 0.87);
-  cursor: move;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: #fff;
-  border-radius: 4px;
-  position: relative;
-  z-index: 1;
-  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-              0 2px 2px 0 rgba(0, 0, 0, 0.14),
-              0 1px 5px 0 rgba(0, 0, 0, 0.12);
-}
-
-.caja:active {
-  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
-              0 8px 10px 1px rgba(0, 0, 0, 0.14),
-              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+ion-card-header {
+    display: -webkit-box;
 }
 
 
 /* Color Theme Swatches in Hex */
-.APOSGR-ion-item { --background: #BF6C50; }
-.APOSGR-Fondo-card { background-color: #FF906B; }
-.APOSGR-Num-aula {    color: #40241B;
-                         font-size: 40px;
-                         font-family: Arial; }
-.APOSGR-letra-label { color: #ffffff;
-                         font-size: 20px; 
-                         font-family: Arial;}
+
+.APOSGR-ion-item {
+    top: 5px;
+    border-radius: 9px 9px 9px 9px;
+    --background: #BF6C50;
+}
+
+.APOSGR-Fondo-card {
+    border-radius: 9px 9px 9px 9px;
+    background-color: #FF906B;
+}
+
+.APOSGR-Num-aula {
+    padding: 10px;
+    top: -5px;
+    color: #40241B;
+    font-size: 40px;
+    font-family: Arial;
+}
+
+.APOSGR-letra-label {
+    color: #ffffff;
+    font-size: 15px;
+    font-family: Arial;
+}
 
 
 /* Color Theme Swatches in Hex */
-.AlaNorte-ion-item { --background: #315259; }
-.AlaNorte-Fondo-card { background-color: #C5D3D9; }
-.AlaNorte-Num-aula {    color: #591426;
-                        font-size: 40px;
-                        font-family: Arial; }
-.AlaNorte-letra-label { color: #0D0000;
-                        font-size: 20px;
-                        font-family: Arial }
+
+.AlaNorte-ion-item {
+    top: 5px;
+    display: inline-grid;
+    border-radius: 9px 9px 9px 9px;
+    --background: #315259;
+}
+
+.AlaNorte-Fondo-card {
+    border-radius: 9px 9px 9px 9px;
+    background-color: #C5D3D9;
+}
+
+.AlaNorte-Num-aula {
+    padding: 10px;
+    top: -5px;
+    color: #591426;
+    font-size: 40px;
+    font-family: Arial;
+}
+
+.AlaNorte-letra-label {
+    color: #0D0000;
+    font-size: 15px;
+    font-family: Arial
+}
 
 
 /* Color Theme Swatches in Hex */
-.ATECNO-ion-item { --background: #667302; }
-.ATECNO-Fondo-card { background-color: #B9BF04; }
-.ATECNO-Num-aula {    color: #403014;
-                            font-size: 40px;
-                            font-family: Arial; }
-.ATECNO-letra-label { color: #D6D982;
-                            font-size: 20px;
-                            font-family: Arial }
+
+.ATECNO-ion-item {
+    top: 5px;
+    border-radius: 9px 9px 9px 9px;
+    --background: #667302;
+}
+
+.ATECNO-Fondo-card {
+    border-radius: 9px 9px 9px 9px;
+    background-color: #B9BF04;
+}
+
+.ATECNO-Num-aula {
+    padding: 10px;
+    top: -5px;
+    color: #403014;
+    font-size: 40px;
+    font-family: Arial;
+}
+
+.ATECNO-letra-label {
+    color: #D6D982;
+    font-size: 15px;
+    font-family: Arial
+}
 
 
 /* Color Theme Swatches in Hex */
-.AlaSur-ion-item { --background: #F24405; }
-.AlaSur-Fondo-card { background-color: #F27405; }
-.AlaSur-Num-aula {     color: #F20505;
-                       font-size: 40px;
-                       font-family: Arial; }
-.AlaSur-letra-label {  color: #400101;
-                       font-size: 20px;
-                       font-family: Arial }
 
-/* Color Theme Swatches in Hex */
-.ATALLE-ion-item { --background: #024059; }
-.ATALLE-Fondo-card { background-color: #048ABF; }
-.ATALLE-Num-aula {    color: #011F26;
-                        font-size: 40px;
-                        font-family: Arial;}
-.ATALLE-letra-label { color: #B5D991;
-                        font-size: 20px;
-                        font-family: Arial}
+.AlaSur-ion-item {
+    top: 5px;
+    border-radius: 9px 9px 9px 9px;
+    --background: #F24405;
+}
 
+.AlaSur-Fondo-card {
+    border-radius: 9px 9px 9px 9px;
+    background-color: #F27405;
+}
 
-/* Color Theme Swatches in Hex */
-.ACTEA-ion-item { --background: #1E592D; }
-.ACTEA-Fondo-card { background-color: #A6652D; }
-.ACTEA-Num-aula {     color: #094021;
-                    font-size: 40px;
-                    font-family: Arial; }
-.ACTEA-letra-label {  color: #99B1BF;
-                    font-size: 20px;
-                    font-family: Arial }
+.AlaSur-Num-aula {
+    padding: 10px;
+    top: -5px;
+    color: #F15505;
+    font-size: 40px;
+    font-family: Arial;
+}
+
+.AlaSur-letra-label {
+    color: #400101;
+    font-size: 15px;
+    font-family: Arial
+}
 
 
 /* Color Theme Swatches in Hex */
-.AAUDI-ion-item { --background: #0ABF04; }
-.AAUDI-Fondo-card { background-color: #F24535; }
-.AAUDI-Num-aula {    color: #0D0D0D;
-                    font-size: 40px;
-                    font-family: Arial; }
-.AAUDI-letra-label { color: #0D0D0D;
-                    font-size: 20px;
-                    font-family: Arial }
 
+.ATALLE-ion-item {
+    top: 5px;
+    border-radius: 9px 9px 9px 9px;
+    --background: #024059;
+}
+
+.ATALLE-Fondo-card {
+    border-radius: 9px 9px 9px 9px;
+    background-color: #048ABF;
+}
+
+.ATALLE-Num-aula {
+    padding: 10px;
+    top: -5px;
+    color: #011F26;
+    font-size: 40px;
+    font-family: Arial;
+}
+
+.ATALLE-letra-label {
+    color: #B5D991;
+    font-size: 15px;
+    font-family: Arial
+}
 
 
 /* Color Theme Swatches in Hex */
-.AARTE-ion-item { --background: #AEEBF2; }
-.AARTE-Fondo-card { background-color: #30A5BF; }
-.AARTE-Num-aula {       color: #401D10;
-                        font-size: 40px;
-                        font-family: Arial; }
-.AARTE-letra-label {    color: #8C4820;
-                        font-size: 20px;
-                        font-family: Arial}
 
+.ACTEA-ion-item {
+    top: 5px;
+    border-radius: 9px 9px 9px 9px;
+    --background: #1E592D;
+}
+
+.ACTEA-Fondo-card {
+    border-radius: 9px 9px 9px 9px;
+    background-color: #A6652D;
+}
+
+.ACTEA-Num-aula {
+    padding: 10px;
+    top: -5px;
+    color: #094021;
+    font-size: 40px;
+    font-family: Arial;
+}
+
+.ACTEA-letra-label {
+    color: #99B1BF;
+    font-size: 15px;
+    font-family: Arial
+}
 
 
 /* Color Theme Swatches in Hex */
-.AMUSI-ion-item { --background: #242D40; }
-.AMUSI-Fondo-card { background-color: #5D6973; }
-.AMUSI-Num-aula {      color: #00080D;
-                        font-size: 40px;
-                        font-family: Arial; }
-.AMUSI-letra-label {   color: #79838C;
-                        font-size: 20px;
-                        font-family: Arial }
+
+.AAUDI-ion-item {
+    top: 5px;
+    border-radius: 9px 9px 9px 9px;
+    --background: #0ABF04;
+}
+
+.AAUDI-Fondo-card {
+    border-radius: 9px 9px 9px 9px;
+    background-color: #F24535;
+}
+
+.AAUDI-Num-aula {
+    padding: 10px;
+    top: -5px;
+    color: #0D0D0D;
+    font-size: 40px;
+    font-family: Arial;
+}
+
+.AAUDI-letra-label {
+    color: #0D0D0D;
+    font-size: 15px;
+    font-family: Arial
+}
+
 
 /* Color Theme Swatches in Hex */
-.AlaPatio-ion-item { --background: #667302; }
-.AlaPatio-Fondo-card { background-color: #B9BF04; }
-.AlaPatio-Num-aula {    color: #403014;
-                            font-size: 40px;
-                            font-family: Arial; }
-.AlaPatio-letra-label { color: #D6D982;
-                            font-size: 20px;
-                            font-family: Arial }
 
-.OtroAHUEN-ion-item { --background: #BF6C50; }
-.OtroAHUEN-Fondo-card { background-color: #FF906B; }
-.OtroAHUEN-Num-aula {    color: #40241B;
-                         font-size: 40px;
-                         font-family: Arial; }
-.OtroAHUEN-letra-label { color: #ffffff;
-                         font-size: 20px; 
-                         font-family: Arial;}                            
+.AARTE-ion-item {
+    top: 5px;
+    border-radius: 9px 9px 9px 9px;
+    --background: #AEEBF2;
+}
+
+.AARTE-Fondo-card {
+    border-radius: 9px 9px 9px 9px;
+    background-color: #30A5BF;
+}
+
+.AARTE-Num-aula {
+    padding: 10px;
+    top: -5px;
+    color: #401D10;
+    font-size: 40px;
+    font-family: Arial;
+}
+
+.AARTE-letra-label {
+    color: #8C4815;
+    font-size: 15px;
+    font-family: Arial
+}
+
+
+/* Color Theme Swatches in Hex */
+
+.AMUSI-ion-item {
+    top: 5px;
+    border-radius: 9px 9px 9px 9px;
+    --background: #242D40;
+}
+
+.AMUSI-Fondo-card {
+    border-radius: 9px 9px 9px 9px;
+    background-color: #5D6973;
+}
+
+.AMUSI-Num-aula {
+    padding: 10px;
+    top: -5px;
+    color: #00080D;
+    font-size: 40px;
+    font-family: Arial;
+}
+
+.AMUSI-letra-label {
+    color: #79838C;
+    font-size: 15px;
+    font-family: Arial
+}
+
+
+/* Color Theme Swatches in Hex */
+
+.AlaPatio-ion-item {
+    top: 5px;
+    border-radius: 9px 9px 9px 9px;
+    --background: #667302;
+}
+
+.AlaPatio-Fondo-card {
+    border-radius: 9px 9px 9px 9px;
+    background-color: #B9BF04;
+}
+
+.AlaPatio-Num-aula {
+    padding: 10px;
+    top: -5px;
+    color: #403014;
+    font-size: 40px;
+    font-family: Arial;
+}
+
+.AlaPatio-letra-label {
+    color: #D6D982;
+    font-size: 15px;
+    font-family: Arial
+}
+
+.OtroAHUEN-ion-item {
+    top: 5px;
+    border-radius: 9px 9px 9px 9px;
+    --background: #BF6C50;
+}
+
+.OtroAHUEN-Fondo-card {
+    border-radius: 9px 9px 9px 9px;
+    background-color: #FF906B;
+}
+
+.OtroAHUEN-Num-aula {
+    padding: 10px;
+    top: -5px;
+    color: #40241B;
+    font-size: 40px;
+    font-family: Arial;
+}
+
+.OtroAHUEN-letra-label {
+    color: #ffffff;
+    font-size: 15px;
+    font-family: Arial;
+}
