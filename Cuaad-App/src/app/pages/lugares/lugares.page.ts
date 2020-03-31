@@ -1,31 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-
+import { HorariosService } from 'src/app/services/horarios.service'
 @Component({
   selector: 'app-lugares',
   templateUrl: './lugares.page.html',
   styleUrls: ['./lugares.page.scss'],
 })
 export class LugaresPage implements OnInit {
-
-  listaUno: any[];
-  listaDos: any[];
-  espacio: any;
+  
   e : any;
-  constructor() {
-    this.listaUno = ['A - 1', 'A - 2', 'A - 3', 'A - 4', 'A - 5', 'Vacio'];
-    this.listaDos = ['Sacar profe','B - 1', 'B - 2', 'B - 3', 'B - 4', 'B - 5'];
-    this.espacio = '';
+  edificio:any;
+  constructor(private sHorarios: HorariosService) {
+    this.sHorarios.getAllAulas()
   }
 
-  ngOnInit() {
-  }
+  ngOnInit();
 
+  change(){
+    this.sHorarios.getAulasProfes(this.edificio);
+  }
 
   drop(event: CdkDragDrop<string[]>) {
     console.log('evento: ', event);
-
-
 
     if (event.previousContainer === event.container) { //Intercambia la misma lista
       moveItemInArray(
@@ -34,7 +30,7 @@ export class LugaresPage implements OnInit {
         event.currentIndex
       );
       if (event.currentIndex < event.previousIndex) { //de abajo pa para arriba
-         if(event.previousContainer.data == this.listaDos && event.currentIndex == 0){//Saca al profe en segunda lista
+         if(event.previousContainer.data == this.sHorarios.profesOtros && event.currentIndex == 0){//Saca al profe en segunda lista
           moveItemInArray(
             event.container.data,
             event.currentIndex - 1,
@@ -56,12 +52,8 @@ export class LugaresPage implements OnInit {
           event.previousIndex
         );
       }
-    } else { //intercambia con otra lista 
-
-     
-
-      
-      if (event.previousContainer.data == this.listaUno) { //Del primero al segundo
+    } else { //intercambia con otra lista       
+      if (event.previousContainer.data == this.sHorarios.profesAsignados) { //Del primero al segundo
         console.log('primero')
         if (event.currentIndex != 0) { //Intercambia
           transferArrayItem(event.previousContainer.data,
@@ -69,7 +61,6 @@ export class LugaresPage implements OnInit {
             event.previousIndex,
             event.currentIndex
           );
-
           transferArrayItem(event.container.data,
             event.previousContainer.data,
             event.currentIndex + 1,
@@ -81,7 +72,7 @@ export class LugaresPage implements OnInit {
             event.previousIndex,
             event.currentIndex+1
           );
-          this.listaUno.splice(event.previousIndex,0,'Vacio')
+          this.sHorarios.profesAsignados.splice(event.previousIndex,0,'Vacio')
         }
       }else{ // del segundo al primero
         console.log('segundo')
@@ -98,20 +89,17 @@ export class LugaresPage implements OnInit {
           event.previousIndex
         );
 
-        console.log(this.listaDos[event.previousIndex])
-        this.e = this.listaDos[event.previousIndex];
+        console.log(this.sHorarios.profesOtros[event.previousIndex])
+        this.e = this.sHorarios.profesOtros[event.previousIndex];
         if(this.e == '?' ||
             this.e == ''||
             this.e == undefined||
             this.e == null||
             this.e == 'Vacio'||
             this.e == ' '){ //TODO: Definir letrero para aulas sin maestro
-          this.listaDos.splice(event.previousIndex,1)
+          this.sHorarios.profesOtros.splice(event.previousIndex,1)
         }
       }
     }
-
-
-
   }
 }
