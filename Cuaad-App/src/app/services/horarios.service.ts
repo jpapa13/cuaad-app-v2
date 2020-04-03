@@ -20,6 +20,9 @@ aulas: Aula[];
 	aulasDefault: Aula[]; 
 	edificios = [];
 	profesOtros = [];
+	profesAsignados = [];
+	aulasAsignadas = [];
+
 	constructor(private request: RequestService) {
 	    this.aulas = new Array()
 	    this.aulasAARTE = new Array()
@@ -35,6 +38,8 @@ aulas: Aula[];
 	    this.aulasOtroAHUEN = new Array()
 	    this.aulasDefault = new Array()
 	    this.edificios = new Array()
+	    this.profesAsignados = new Array()
+	    this.aulasAsignadas = new Array()
   	}
 
 	getAllAulas() {

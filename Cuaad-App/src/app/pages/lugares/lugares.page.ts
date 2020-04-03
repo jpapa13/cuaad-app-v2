@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { HorariosService } from 'src/app/services/horarios.service'
 @Component({
@@ -6,15 +6,13 @@ import { HorariosService } from 'src/app/services/horarios.service'
   templateUrl: './lugares.page.html',
   styleUrls: ['./lugares.page.scss'],
 })
-export class LugaresPage implements OnInit {
+export class LugaresPage{
   
   e : any;
   edificio:any;
   constructor(private sHorarios: HorariosService) {
     this.sHorarios.getAllAulas()
   }
-
-  ngOnInit();
 
   change(){
     this.sHorarios.getAulasProfes(this.edificio);
