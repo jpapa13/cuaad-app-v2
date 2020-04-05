@@ -147,6 +147,9 @@ $route['componentes/directorio/area/persona/obtener']['POST'] = 'componentes/Dir
 //HORARIOS
 $route['componentes/horarios']['GET'] = 'componentes/Horarios/todos';
 
+//HORARIOS
+$route['componentes/aulas']['GET'] = 'componentes/Aulas/todos';
+
 //CATALOGOS
 $route['catalogos/carreras']['GET'] = 'catalogos/Carrera/todos';
 $route['catalogos/tipos_archivo']['GET'] = 'catalogos/TipoArchivo/todos';
