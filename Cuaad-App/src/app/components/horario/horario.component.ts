@@ -15,8 +15,7 @@ export class HorarioComponent implements OnInit {
   fondoMaestro = '-ion-item';
   letraMaestro = '-letra-label';
 
-constructor(private sHorarios: HorariosService){
-}
+constructor(private sHorarios: HorariosService){}
 
  /* nuevaClase(clase){
     if(this.claseActual == clase){
@@ -28,7 +27,6 @@ constructor(private sHorarios: HorariosService){
   }*/
 
   ngOnInit(){
-    this.sHorarios.getAllAulas()
-    console.log('llamando')
+
   };
 }

@@ -2,7 +2,7 @@
   <ion-item>
     <ion-label>Edificio</ion-label>
     <ion-select (ionChange)="change(value)" [(ngModel)]="edificio">
-      <ion-select-option *ngFor="let edificio of sHorarios.edificios; index as i" [value]="i">{{edificio[0]}}</ion-select-option>
+      <ion-select-option *ngFor="let edificio of sHorarios.edificio.lista; index as i" [value]="i">{{edificio[0]}}</ion-select-option>
     </ion-select>
   </ion-item>
 <ion-content>

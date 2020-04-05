@@ -11,11 +11,10 @@ export class LugaresPage{
   e : any;
   edificio:any;
   constructor(private sHorarios: HorariosService) {
-    this.sHorarios.getAllAulas()
   }
 
   change(){
-    this.sHorarios.getAulasProfes(this.edificio);
+    this.sHorarios.getAulasEdificio(this.edificio);
   }
 
   drop(event: CdkDragDrop<string[]>) {
