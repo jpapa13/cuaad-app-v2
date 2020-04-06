@@ -88,9 +88,9 @@ export class HorariosService {
 	
   	getProfesOtros(){
 	  	this.profesOtros = new Array;
-	  	this.profesOtros.push('Sacar profe')
+	  	this.profesOtros.push({profesor:'Sacar profe'})
 	  	this.edificio.aulasOtroAHUEN.forEach(element=> {
-	  		this.profesOtros.push(element.profesor)
+	  		this.profesOtros.push(element)
 	  	});
   	}
 /*

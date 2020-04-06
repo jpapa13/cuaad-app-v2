@@ -10,6 +10,7 @@ export class LugaresPage{
   
   e : any;
   edificio:any;
+  vacio = {profesor:'Vacio'}
   constructor(private sHorarios: HorariosService) {
   }
 
@@ -64,12 +65,16 @@ export class LugaresPage{
             event.previousIndex
           );
         }else{ //Saca al profe
+          console.log(event.container.data)
+          console.log(this.sHorarios.profesAsignados)
+          console.log(event.previousContainer.data.profesor)
           transferArrayItem(event.previousContainer.data,
             event.container.data,
             event.previousIndex,
             event.currentIndex+1
           );
-          this.sHorarios.profesAsignados.splice(event.previousIndex,0,'Vacio')
+          this.sHorarios.profesAsignados.splice(event.previousIndex,0,this.vacio)
+          console.log(this.sHorarios.profesOtros[event.currentIndex+1])
         }
       }else{ // del segundo al primero
         console.log('segundo')
@@ -88,12 +93,7 @@ export class LugaresPage{
 
         console.log(this.sHorarios.profesOtros[event.previousIndex])
         this.e = this.sHorarios.profesOtros[event.previousIndex];
-        if(this.e == '?' ||
-            this.e == ''||
-            this.e == undefined||
-            this.e == null||
-            this.e == 'Vacio'||
-            this.e == ' '){ //TODO: Definir letrero para aulas sin maestro
+        if(this.e.profesor == 'Vacio'){ //TODO: Definir letrero para aulas sin maestro
           this.sHorarios.profesOtros.splice(event.previousIndex,1)
         }
       }

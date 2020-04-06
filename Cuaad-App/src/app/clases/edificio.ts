@@ -85,10 +85,13 @@ export class Edificio{
 	}
 
 	buscarProfe(aula,edificio){
-		let value = 'Vacio'
+		let value = {
+						profesor:'Vacio',
+						detalle_id:'null'
+					}
 		this.lista[edificio][1].forEach(element => {
 			if(element.nombre == aula){
-				value  = element.profesor;
+				value  = element;
 				return
 			}
 		});
