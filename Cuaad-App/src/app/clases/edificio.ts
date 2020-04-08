@@ -67,7 +67,7 @@ export class Edificio{
 	          this.aulasOtroAHUEN.push(element)
 	          break
 	        default:
-	          this.aulasDefault.push(element)
+	          this.aulasOtroAHUEN.push(element)
 	      }
 	    });
 	    this.lista.push(['Artes',this.aulasAARTE])
@@ -97,5 +97,4 @@ export class Edificio{
 		});
 		return value
 	}
-
 }
