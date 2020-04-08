@@ -1,6 +1,8 @@
 import { Component} from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { HorariosService } from 'src/app/services/horarios.service'
+import { HorariosService } from 'src/app/services/horarios.service';
+import { RequestService } from 'src/app/services/request.service';
+
 @Component({
   selector: 'app-lugares',
   templateUrl: './lugares.page.html',
@@ -11,7 +13,8 @@ export class LugaresPage{
   e : any;
   edificio:any;
   vacio = {profesor:'Vacio'}
-  constructor(private sHorarios: HorariosService) {
+  constructor(private sHorarios: HorariosService,
+              private request: RequestService) {
   }
 
   change(){
@@ -74,7 +77,11 @@ export class LugaresPage{
             event.currentIndex+1
           );
           this.sHorarios.profesAsignados.splice(event.previousIndex,0,this.vacio)
-          console.log(this.sHorarios.profesOtros[event.currentIndex+1])
+          //console.log(this.sHorarios.profesOtros[event.currentIndex+1])
+          var body = {detalle_id:this.sHorarios.profesOtros[event.currentIndex+1].detalle_id}
+          this.request.borrarHorario(body).subscribe((Response: any) => {
+            console.log(Response);
+          });
         }
       }else{ // del segundo al primero
         console.log('segundo')

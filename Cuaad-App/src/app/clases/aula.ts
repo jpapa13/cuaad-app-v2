@@ -14,7 +14,7 @@ export class Aula {
                     this.clase = 'AlaNorte'
                 }else if(this.nombre <= '0063'){
                     this.clase = 'AlaPatio'
-                }else if(this.nombre <= '0084' ){
+                }else if(this.nombre <= '0085' ){
                     this.clase = 'AlaSur'
                 }else{
                     this.clase = 'OtroAHUEN'
