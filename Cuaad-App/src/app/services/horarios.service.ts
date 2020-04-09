@@ -7,8 +7,8 @@ import { Edificio } from '../clases/edificio';
 })
 export class HorariosService {
 	aulas: Aula[];
-	edificio : Edificio[]; 		//para mostrar profes y horarios
-	edificioTodos : Edifio[];	//para todas las aulas
+	edificio : Edificio; 		//para mostrar profes y horarios
+	edificioTodos : Edificio;	//para todas las aulas
 	profesOtros = [];
 	profesAsignados = [];
 	aulasAsignadas = [];
