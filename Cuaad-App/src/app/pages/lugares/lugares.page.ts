@@ -97,8 +97,14 @@ export class LugaresPage{
           event.currentIndex + 1,
           event.previousIndex
         );
-
+        //console.log(this.sHorarios.profesAsignados[event.currentIndex + 1])
+        const detalle_id = this.sHorarios.profesAsignados[event.currentIndex].detalle_id
+        const aula = this.sHorarios.aulasAsignadas[event.currentIndex] //aula
+        const edificioNombre = this.sHorarios.edificio.lista[this.edificio][1][0].edificio
         console.log(this.sHorarios.profesOtros[event.previousIndex])
+        this.request.asignarHorario(detalle_id, aula, edificioNombre).subscribe((Response: any) => {
+            console.log(Response);
+          });
         this.e = this.sHorarios.profesOtros[event.previousIndex];
         if(this.e.profesor == 'Vacio'){ //TODO: Definir letrero para aulas sin maestro
           this.sHorarios.profesOtros.splice(event.previousIndex,1)

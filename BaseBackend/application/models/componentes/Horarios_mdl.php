@@ -75,6 +75,34 @@ class Horarios_mdl extends CI_Model{
         return $sql;
     }
 
+    public function asignar_detalle($detalle_id,$edificio,$aula)
+    { 
+        //UPDATE `detalle_siiau` SET `activo` = '0' WHERE `detalle_siiau`.`id` = 1
+        //INSERT INTO `detalle_siiau` (`id`, `hora_ini`, `hora_fin`, `dias`, `aula_fk_nombre`, `activo`, `siiau_fk`, `actualizacion`, `aula_fk_sede`) VALUES (NULL, '14:00:00', '17:55:00', 'I', NULL, '1', '503', CURRENT_TIMESTAMP, NULL);
+        $this->db->trans_start();
+
+        $data = [
+            'activo' => '0',
+        ];
+        $this->db->where('id',$detalle_id);
+        $this->db->set($data);
+        $this->db->update('detalle_siiau');
+        //$this->db->set('activo',0);
+        $affected_rows = $this->db->affected_rows();
+
+        
+        $this->db->where('id',$detalle_id);
+        $this->db->from('detalle_siiau');
+        $this->db->select('hora_ini, hora_fin, dias,siiau_fk');
+        $result = $this->db->get()->result_array();
+        $result = $result[0];
+        $result['aula_fk_nombre'] = $aula;
+        $result['aula_fk_sede'] = $edificio;
+        $sql = $this->db->insert('detalle_siiau',$result);
+        $this->db->trans_complete();
+        return $this->db->trans_status();
+    }
+
     public function __destruct()
     {
         

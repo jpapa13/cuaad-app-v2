@@ -56,4 +56,49 @@ class Horarios extends REST_Controller {
             }
         }  
 	}
+    public function asignar_detalle_post(){
+        $rules = array(
+            array(
+                'field'=>'detalle_id',
+                'rules'=>'required',
+                'errors'=>array(
+                    'required'=>'El campo detalle_id debe ser ingresado'
+                )
+            ),
+            array(
+                'field'=>'edificio',
+                'rules'=>'required',
+                'errors'=>array(
+                    'required'=>'El campo edificio debe ser ingresado'
+                )
+            ),
+            array(
+                'field'=>'aula',
+                'rules'=>'required',
+                'errors'=>array(
+                    'required'=>'El campo aula debe ser ingresado'
+                )
+            )
+        );
+        if ($this->request_lib->validar($this->post(),$rules) == FALSE)
+        {
+            $this->response([
+                'status' => FALSE,
+                'data'   => $this->form_validation->error_array()
+            ], REST_Controller::HTTP_BAD_REQUEST);
+        }else{
+            $respuesta = $this->Horarios_mdl->asignar_detalle($this->post('detalle_id'),$this->post('edificio'),$this->post('aula'));
+            if($respuesta !== FALSE){
+                $this->response([
+                    'status' => TRUE,
+                    'data'   => $respuesta
+                ], REST_Controller::HTTP_OK);
+            }else{
+                $this->response([
+                    'status' => FALSE,
+                    'data'   => 'detalle no encontrado'
+                ], REST_Controller::HTTP_NOT_ACCEPTABLE);
+            }
+        }  
+    }
 }
