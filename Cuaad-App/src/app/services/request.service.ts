@@ -46,6 +46,10 @@ export class RequestService {
       asignarHorario(detalle_id, aula, edificio){ //
         const path =  this.url + 'componentes/horarios/asignar';
         return this.https.post(path, {'detalle_id':detalle_id, 'aula': aula, 'edificio': edificio},{});
+      }
+      intercambiarHorario(detalle_1, detalle_2){
+        const path =  this.url + 'componentes/horarios/intercambiar';
+        return this.https.post(path, {'detalle_1':detalle_1,'detalle_2':detalle_2},{});
       } 
       getAulas(){
           const path =  this.url + 'componentes/aulas';

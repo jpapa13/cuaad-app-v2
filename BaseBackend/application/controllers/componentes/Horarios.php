@@ -101,4 +101,42 @@ class Horarios extends REST_Controller {
             }
         }  
     }
+    public function intercambiar_detalle_post(){
+        $rules = array(
+            array(
+                'field'=>'detalle_1',
+                'rules'=>'required',
+                'errors'=>array(
+                    'required'=>'El campo detalle_1 debe ser ingresado'
+                )
+            ),
+            array(
+                'field'=>'detalle_2',
+                'rules'=>'required',
+                'errors'=>array(
+                    'required'=>'El campo detalle_2 debe ser ingresado'
+                )
+            )
+        );
+        if ($this->request_lib->validar($this->post(),$rules) == FALSE)
+        {
+            $this->response([
+                'status' => FALSE,
+                'data'   => $this->form_validation->error_array()
+            ], REST_Controller::HTTP_BAD_REQUEST);
+        }else{
+            $respuesta = $this->Horarios_mdl->intercambiar_detalle($this->post('detalle_1'),$this->post('detalle_2'));
+            if($respuesta !== FALSE){
+                $this->response([
+                    'status' => TRUE,
+                    'data'   => $respuesta
+                ], REST_Controller::HTTP_OK);
+            }else{
+                $this->response([
+                    'status' => FALSE,
+                    'data'   => 'detalles no intercambiado'
+                ], REST_Controller::HTTP_NOT_ACCEPTABLE);
+            }
+        }  
+    }
 }

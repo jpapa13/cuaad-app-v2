@@ -1,3 +1,4 @@
+import { Aula } from 'src/app/clases/aula';
 export class Edificio{
 	lista = [];	
 	aulasAARTE: Aula[];
@@ -13,7 +14,7 @@ export class Edificio{
 	aulasOtroAHUEN: Aula[];
 	aulasDefault: Aula[]; 
 
-	constructor(private request: RequestService) {
+	constructor() {
 	    this.aulasAARTE = new Array()
 	    this.aulasAAUDI = new Array()
 	    this.aulasACTEA = new Array()

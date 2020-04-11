@@ -75,7 +75,7 @@ class Horarios_mdl extends CI_Model{
         return $sql;
     }
 
-    public function asignar_detalle($detalle_id,$edificio,$aula)
+    public function asignar_detalle($detalle_id, $edificio, $aula)
     { 
         //UPDATE `detalle_siiau` SET `activo` = '0' WHERE `detalle_siiau`.`id` = 1
         //INSERT INTO `detalle_siiau` (`id`, `hora_ini`, `hora_fin`, `dias`, `aula_fk_nombre`, `activo`, `siiau_fk`, `actualizacion`, `aula_fk_sede`) VALUES (NULL, '14:00:00', '17:55:00', 'I', NULL, '1', '503', CURRENT_TIMESTAMP, NULL);
@@ -101,6 +101,47 @@ class Horarios_mdl extends CI_Model{
         $sql = $this->db->insert('detalle_siiau',$result);
         $this->db->trans_complete();
         return $this->db->trans_status();
+    }
+
+    public function intercambiar_detalle($detalle_1, $detalle_2)
+    { 
+        //UPDATE `detalle_siiau` SET `activo` = '0' WHERE `detalle_siiau`.`id` = 1 OR `detalle_siiau`.`id` = 2
+        //INSERT INTO `detalle_siiau` (`id`, `hora_ini`, `hora_fin`, `dias`, `aula_fk_nombre`, `activo`, `siiau_fk`, `actualizacion`, `aula_fk_sede`) VALUES (NULL, '14:00:00', '17:55:00', 'I', NULL, '1', '503', CURRENT_TIMESTAMP, NULL);
+        $this->db->trans_start();
+
+        $data = [
+            'activo' => '0',
+        ];
+        $this->db->where('id',$detalle_1);
+        $this->db->or_where('id',$detalle_2);
+        $this->db->set($data);
+        $this->db->update('detalle_siiau');
+        //$this->db->set('activo',0);
+        $affected_rows = $this->db->affected_rows();
+        
+        $this->db->where('id',$detalle_1);
+        $this->db->from('detalle_siiau');
+        $this->db->select('hora_ini, hora_fin, dias,aula_fk_nombre,siiau_fk, aula_fk_sede');
+        $result1 = $this->db->get()->result_array();
+        $siiau_fk1= $result1[0]['siiau_fk'];
+
+        $this->db->where('id',$detalle_2);
+        $this->db->from('detalle_siiau');
+        $this->db->select('hora_ini, hora_fin, dias,aula_fk_nombre,siiau_fk, aula_fk_sede');
+        $result2 = $this->db->get()->result_array();
+        
+        $result1[0]['siiau_fk'] = $result2[0]['siiau_fk'];
+        $result2[0]['siiau_fk'] = $siiau_fk1;
+        
+        //$sql = array('result1' => $result1, 'result2' => $result2);
+        $sql1 = $this->db->insert('detalle_siiau',$result1[0]); 
+        $sql2 = $this->db->insert('detalle_siiau',$result2[0]); 
+
+
+
+        //$sql = $this->db->affected_rows();
+        $this->db->trans_complete();
+        return $sql1.$sql2;
     }
 
     public function __destruct()

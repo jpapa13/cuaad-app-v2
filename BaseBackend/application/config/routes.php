@@ -148,8 +148,9 @@ $route['componentes/directorio/area/persona/obtener']['POST'] = 'componentes/Dir
 $route['componentes/horarios']['GET'] = 'componentes/Horarios/todos';
 $route['componentes/horarios/borrar']['POST'] = 'componentes/Horarios/desactivar_detalle';
 $route['componentes/horarios/asignar']['POST'] = 'componentes/Horarios/asignar_detalle';
+$route['componentes/horarios/intercambiar']['POST'] = 'componentes/Horarios/intercambiar_detalle';
 
-//HORARIOS
+//AULAS
 $route['componentes/aulas']['GET'] = 'componentes/Aulas/todos';
 
 //CATALOGOS

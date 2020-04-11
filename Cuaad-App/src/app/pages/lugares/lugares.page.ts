@@ -25,6 +25,13 @@ export class LugaresPage{
     console.log('evento: ', event);
 
     if (event.previousContainer === event.container) { //Intercambia la misma lista
+      if(event.container.data == this.sHorarios.profesAsignados){ //Es en la primer lista
+        const detalle_1 = this.sHorarios.profesAsignados[event.currentIndex].detalle_id
+        const detalle_2 = this.sHorarios.profesAsignados[event.previousIndex].detalle_id
+        this.request.intercambiarHorario(detalle_1,detalle_2).subscribe((Response: any) => {
+            console.log(Response);
+          });
+      }
       moveItemInArray(
         event.container.data,
         event.previousIndex,
