@@ -115,6 +115,11 @@ export class LugaresPage{
         this.e = this.sHorarios.profesOtros[event.previousIndex];
         if(this.e.profesor == 'Vacio'){ //TODO: Definir letrero para aulas sin maestro
           this.sHorarios.profesOtros.splice(event.previousIndex,1)
+        }else{
+          var body = {detalle_id:this.e.detalle_id}
+          this.request.borrarHorario(body).subscribe((Response: any) => {
+            console.log(Response);
+          });
         }
       }
     }
