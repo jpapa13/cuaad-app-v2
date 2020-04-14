@@ -117,20 +117,24 @@ export class LugaresPage{
           event.previousIndex
         );
         //console.log(this.sHorarios.profesAsignados[event.currentIndex + 1])
+        console.log(this.sHorarios.profesAsignados[event.currentIndex]) //elemento arrastrado
         const detalle_id = this.sHorarios.profesAsignados[event.currentIndex].detalle_id
         const aula = this.sHorarios.aulasAsignadas[event.currentIndex] //aula
+        console.log(this.edificio)
         const edificioNombre = this.sHorarios.edificio.lista[this.edificio][1][0].edificio
         console.log(this.sHorarios.profesOtros[event.previousIndex])
         this.request.asignarHorario(detalle_id, aula, edificioNombre).subscribe((Response: any) => {
-            console.log(Response);
-          });
+          console.log(Response);
+          this.sHorarios.profesAsignados[event.currentIndex].detalle_id = Response.data.id
+        });
         this.e = this.sHorarios.profesOtros[event.previousIndex];
         if(this.e.profesor == 'Vacio'){ //TODO: Definir letrero para aulas sin maestro
           this.sHorarios.profesOtros.splice(event.previousIndex,1)
         }else{
           var body = {detalle_id:this.e.detalle_id}
           this.request.borrarHorario(body).subscribe((Response: any) => {
-            console.log(Response);
+            console.log(Response.data.id);
+            this.sHorarios.profesOtros[event.previousIndex].detalle_id = Response.data.id;
           });
         }
       }
