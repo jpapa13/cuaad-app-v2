@@ -11,18 +11,18 @@
              AULAS
             <ion-list>
                 <ion-card *ngFor="let aula of sHorarios.aulasAsignadas">
-                    <ion-item>
-                        {{aula}}
-                    </ion-item>
+                    <ion-card-content>
+                        {{aula}}<br>->
+                    </ion-card-content>
                 </ion-card>
             </ion-list>
         </ion-col>
         <ion-col size="5">
             PROFE
             <ion-list cdkDropList #firstList="cdkDropList" [cdkDropListData]="sHorarios.profesAsignados" [cdkDropListConnectedTo]=" [secondList] " (cdkDropListDropped)="drop($event) ">
-                <ion-card *ngFor="let item of sHorarios.profesAsignados" cdkDrag [cdkDragDisabled]="item.profesor == 'Vacio' ? true : null">
+                <ion-card *ngFor="let item of sHorarios.profesAsignados" cdkDrag [cdkDragDisabled]="item.profesor.nombre == 'Vacio' ? true : null">
                     <ion-card-content>
-                        {{ item.profesor }} 
+                        {{ item.profesor.nombre }} <br> {{ item.profesor.apellido }}
                     </ion-card-content>
                 </ion-card>
             </ion-list>
@@ -32,7 +32,7 @@
             <ion-list cdkDropList #secondList="cdkDropList" [cdkDropListData]="sHorarios.profesOtros " [cdkDropListConnectedTo]="[firstList] " (cdkDropListDropped)="drop($event) ">
                 <ion-card *ngFor="let item of sHorarios.profesOtros; index as i" cdkDrag [cdkDragDisabled]="i == 0 ? true : null">
                     <ion-card-content>
-                        {{ item.profesor }}
+                        {{ item.profesor.nombre }}<br>{{ item.profesor.apellido }}
                     </ion-card-content>
                 </ion-card>
             </ion-list>

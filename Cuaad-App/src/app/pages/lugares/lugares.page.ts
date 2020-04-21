@@ -12,7 +12,7 @@ export class LugaresPage{
   
   e : any;
   edificio:any;
-  vacio = {profesor:'Vacio'}
+  vacio = {profesor:{ nombre:'Vacio', apellido: '...'}}
   constructor(private sHorarios: HorariosService,
               private request: RequestService) {}
 
@@ -128,7 +128,7 @@ export class LugaresPage{
           this.sHorarios.profesAsignados[event.currentIndex].detalle_id = Response.data.id
         });
         this.e = this.sHorarios.profesOtros[event.previousIndex];
-        if(this.e.profesor == 'Vacio'){ //TODO: Definir letrero para aulas sin maestro
+        if(this.e.profesor.nombre == 'Vacio'){ //TODO: Definir letrero para aulas sin maestro
           this.sHorarios.profesOtros.splice(event.previousIndex,1)
         }else{
           var body = {detalle_id:this.e.detalle_id}

@@ -87,7 +87,8 @@ export class Edificio{
 
 	buscarProfe(aula,edificio){
 		let value = {
-						profesor:'Vacio',
+						profesor:{nombre:'Vacio',
+								  apellido:'...'},
 						detalle_id:'null'
 					}
 		this.lista[edificio][1].forEach(element => {

@@ -3,7 +3,7 @@ import { RequestService } from 'src/app/services/request.service';
 import { Aula } from '../clases/aula';
 import { Edificio } from '../clases/edificio';
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class HorariosService {
 	aulas: Aula[];
@@ -30,6 +30,11 @@ export class HorariosService {
 		.subscribe((Response: any) => {
 		  if (Response.status === true) {
 		    Response.data.forEach(element => {
+		    	let arraySplit = element.profesor.split(',');
+		    	element.profesor = {
+					apellido: arraySplit[0],
+					nombre: arraySplit[1]
+				}			
 		      const aulat = new Aula() 
 		      this.aulas.push(Object.assign(aulat, element));
 		      aulat.setClase()
@@ -70,17 +75,17 @@ export class HorariosService {
 		if ( a.clase < b.clase ){
 		  return -1;
 		}
-		else if ( a.clase > b.clase ){
-		  return 1;
-		}else{
-		  if(a.edificio =='APOSGR'){
-		    return a.nombre - b.nombre
-		  }else{
-		    if(a.nombre < b.nombre)
-		      return -1;
-		    else if(a.nombre > b.nombre)
-		      return 1
-		  }
+		else if (a.clase > b.clase) {
+			return 1;
+		} else {
+			if (a.edificio == 'APOSGR') {
+				return a.nombre - b.nombre
+			} else {
+				if (a.nombre < b.nombre)
+					return -1;
+				else if (a.nombre > b.nombre)
+					return 1
+			}
 		}
 		return 0;
 	}
@@ -88,7 +93,8 @@ export class HorariosService {
 	
   	getProfesOtros(){
 	  	this.profesOtros = new Array;
-	  	this.profesOtros.push({profesor:'Sacar profe'})
+	  	this.profesOtros.push({profesor: {nombre:'Sacar profe',
+	  										apellido:'↓'}})
 	  	this.edificio.aulasOtroAHUEN.forEach(element=> {
 	  		this.profesOtros.push(element)
 	  	});
@@ -110,4 +116,6 @@ export class HorariosService {
 			this.aulasAsignadas.push(element.nombre)
 		});
 	}
+
+	
 }

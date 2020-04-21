@@ -1,16 +1,15 @@
-<ion-grid
-  *ngFor="let edificio of sHorarios.edificio.lista">
-  <ion-title>{{edificio[0]}}</ion-title>
+<ion-grid *ngFor="let edificio of sHorarios.edificio.lista">
+    <ion-title>{{edificio[0]}}</ion-title>
     <ion-row>
-        <ion-col size="12" size-xl="3" size-lg="4" size-md="4" size-sm="6" *ngFor="let aula of edificio[1]">
+        <ion-col size="12" size-xl="3" size-lg="4" size-md="4" size-sm="6" *ngFor="let aula of edificio[1];">
             <ion-card [ngClass]="[aula.clase] + [fondoCard]">
                 <ion-card-header>
                     <ion-card-title [ngClass]="[aula.clase] + [numAula]">{{aula.nombre}}</ion-card-title>
-                    <ion-card-content style="padding-inline-end: 50px;">
+                    <ion-card-content>
 
                         <ion-item [ngClass]="[aula.clase] + [fondoMaestro]">
                             <ion-label [ngClass]="[aula.clase] + [letraMaestro]">
-                                {{aula.profesor}}
+                                {{aula.profesor.apellido}}<br>{{aula.profesor.nombre}}
                             </ion-label>
                         </ion-item>
 
