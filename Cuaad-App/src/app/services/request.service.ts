@@ -55,5 +55,6 @@ export class RequestService {
           const path =  this.url + 'componentes/aulas';
           return this.https.get(path);
       }
-}
+
+    }
 

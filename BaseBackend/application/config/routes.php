@@ -83,6 +83,7 @@ $route['login/permisos']['GET'] = 'Login/permisos';
 $route['login/ingresar']['POST'] = 'Login/login';
 $route['login/salir']['POST'] = 'Login/logout';
 
+
 //CONFIGURACION FORMULAS
 $route['configuraciones/formulas/generar_formula']['POST'] = 'configuraciones/Formulas/guardarFormula';
 $route['configuraciones/formulas/generar_resultado']['GET'] = 'configuraciones/Formulas/generarResultado';
@@ -171,3 +172,7 @@ $route['plantilla/borrar']['DELETE'] = 'Plantilla/index';
 $route['default_controller'] = 'Error';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+//LOGINCUAAD
+$route['LoginCtrl/ingresar']['GET'] = 'LoginCtrl/index';
+

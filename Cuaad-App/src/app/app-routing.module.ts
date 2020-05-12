@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'lugares', loadChildren: './pages/lugares/lugares.module#LugaresPageModule' },
   { path: 'agenda', loadChildren: './pages/agenda/agenda.module#AgendaPageModule' },
   { path: 'eventos', loadChildren: './pages/eventos/eventos.module#EventosPageModule' },
-  { path: 'detalle-evento', loadChildren: './pages/detalle-evento/detalle-evento.module#DetalleEventoPageModule' }
+  { path: 'detalle-evento', loadChildren: './pages/detalle-evento/detalle-evento.module#DetalleEventoPageModule' },
+  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' }
 ];
 
 @NgModule({
