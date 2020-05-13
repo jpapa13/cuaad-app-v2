@@ -10,6 +10,7 @@ class LoginCtrl extends REST_Controller{
     {
         parent::__construct();
         $this->load->model('Login_models');
+        $this->load->library('request_lib');
         
     }
 
@@ -18,7 +19,7 @@ class LoginCtrl extends REST_Controller{
         $this->response([
 
             'status' => TRUE,
-            'data' => $this->get()
+            'data' => $this->post()
 
         ], REST_Controller::HTTP_NOT_FOUND);
     }
@@ -34,7 +35,7 @@ class LoginCtrl extends REST_Controller{
                     'valid_usuario' => 'El usuario debe ser valido'
                 )
                 ), array(
-                    'field' => 'constraseña',
+                    'field' => 'contraseña',
                     'rules' => 'required',
                     'errors' => array(
                         'required' => 'Ingresar contraseña'
@@ -43,6 +44,26 @@ class LoginCtrl extends REST_Controller{
 
 
         );
+        if ($this->request_lib->validar($this->post(),$arreglo) == FALSE)
+		{
+			$this->response([
+				'status' => FALSE,
+				'data'   => $this->form_validation->error_array()
+			], REST_Controller::HTTP_BAD_REQUEST);
+		}else{
+			$respuesta = $this->Login_models->login($this->post('usuario'),$this->post('contraseña'));
+			if($respuesta !== FALSE){
+				$this->response([
+					'status' => TRUE,
+					'data'   => $respuesta
+				], REST_Controller::HTTP_OK);
+			}else{
+				$this->response([
+					'status' => FALSE,
+					'data'   => 'usuario o password incorrectos'
+				], REST_Controller::HTTP_NOT_ACCEPTABLE);
+			}
+		}	
     }
 }
 
