@@ -5,6 +5,8 @@ import { Componente } from '../interfaces/interfaces';
 import { Galeria } from '../clases/galeria';
 
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -56,5 +58,23 @@ export class RequestService {
           return this.https.get(path);
       }
 
-    }
+      postLogin(usuario: string, contraseña: string){
+        
+        const path = this.url + 'LoginCtrl/ingresar/';
+    
+        const data= {usuario, contraseña}
+
+
+        this.https.post(`${path}`, data).subscribe(resp =>{
+          console.log(resp);
+        });
+
+      
+      }
+
+
+
+      }
+
+    
 

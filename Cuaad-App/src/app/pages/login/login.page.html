@@ -1,25 +1,26 @@
 <ion-content>
 
-    <ion-grid>
-        <ion-row>
-            <ion-col>
+    <form (ngSubmit)="login( flogin )" #flogin="ngForm">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
 
-                <ion-item>
-                    <ion-label position="floating">Usuario</ion-label>
-                    <ion-input></ion-input>
-                </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Usuario</ion-label>
+                        <ion-input name="usuario" type="text" [(ngModel)]="loginUser.usuario" required></ion-input>
+                    </ion-item>
 
-                <ion-item>
-                    <ion-label position="floating">Contraseña</ion-label>
-                    <ion-input></ion-input>
-                </ion-item>
+                    <ion-item>
+                        <ion-label>Contraseña</ion-label>
+                        <ion-input position="floating" name="contraseña" type="password" [(ngModel)]="loginUser.contrasena" required></ion-input>
+                    </ion-item>
 
 
-                <ion-button expand="block" fill="outline">INGRESAR</ion-button>
+                    <ion-button expand="block" fill="outline" type="submit" color="tertiary" shape="round">INGRESAR</ion-button>
 
-            </ion-col>
-        </ion-row>
-    </ion-grid>
-
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
 
 </ion-content>
