@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-headers',
@@ -10,7 +10,8 @@ export class HeadersComponent implements OnInit {
 
   @Input() titulo: string;
 
-  constructor(public actionSheetController: ActionSheetController) { }
+  constructor(public actionSheetController: ActionSheetController,
+              private navCtrl: NavController) { }
 
   ngOnInit() {}
 
@@ -27,6 +28,11 @@ export class HeadersComponent implements OnInit {
       }]
     });
     await actionsheet.present();
+  }
+
+  login(){
+    this.navCtrl.navigateRoot('/login')
+
   }
 
 }

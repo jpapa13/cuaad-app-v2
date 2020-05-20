@@ -1,11 +1,11 @@
 <app-headers titulo="Cuaad-app"></app-headers>
- 
-<ion-content>    
-    <ion-slides pager="ios" >
-      <ion-slide *ngFor="let item of galeria.archivo">
-        <div class="image-slide" > 
-          <img   src={{item.ruta}} (click)="verDetalle()">
-        </div>
-      </ion-slide>
+
+<ion-content>
+    <ion-slides pager="ios">
+        <ion-slide *ngFor="let item of galeria.archivo">
+            <div class="image-slide">
+                <img src={{item.ruta}} (click)="verDetalle()">
+            </div>
+        </ion-slide>
     </ion-slides>
-  </ion-content>
+</ion-content>
