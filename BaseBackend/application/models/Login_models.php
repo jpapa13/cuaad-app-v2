@@ -21,7 +21,17 @@ class Login_models extends CI_Model {
             'usuario.contraseña' => $contraseña
 
         ));
-        return $this->db->get()->row();
+    $usuario = $this->db->get()->row();
+    if(is_null($usuario)){
+        return false;
+    }else{
+        $token = $usuario->id.' '.$usuario->usuario;
+        $token_encriptado = $this->encryption->encrypt($token);
+        $fecha_expiracion = modificacionFecha(date('Y-m-d H:i:s'),$this->config->item('sess_expiration'),'second','+');
+        $usuario->token = $token_encriptado;
+        $usuario->token_expiracion = $fecha_expiracion;
+    }
+    return $usuario; 
 
         
     }
