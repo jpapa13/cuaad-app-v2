@@ -1,41 +1,54 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
 import { NgForm } from '@angular/forms';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
+import { Usuario } from '../../clases/usuario';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage{
 
-  loginUser =
-  { 
-    usuario: 'Admin',
-    contrasena: '1234'
-  };
+  usuario : Usuario;
 
   constructor(private requestService:RequestService,
-              private navCtrl :NavController) { }
+              private navCtrl :NavController,
+              public storage: Storage,
+              public toastController: ToastController) 
+  {  
+    this.usuario = new Usuario();
+  }
 
-  ngOnInit() {
+  async presentToast(messg) {
+    const toast = await this.toastController.create({
+      message: messg,
+      duration: 2000
+    });
+    toast.present();
   }
 
   async login( fLogin: NgForm ){
-
-    if(fLogin.invalid) { return;}
-    else{
-      
-      this.navCtrl.navigateRoot('/inicio')
-
+    if(fLogin.invalid) { 
+          return;
+    }else{   
+      this.requestService.login( this.usuario.usuario, this.usuario.pass ).subscribe((Response: any) => {
+        if (Response.status === true) {      
+            this.storage.set('token', Response.data.token);  
+            this.storage.set('token_exp', Response.data.token_expiracion); 
+            this.navCtrl.navigateRoot('/inicio')
+        }
+      },(error)=>{
+        console.log('Error:');
+          console.log(Response);
+          console.log(error.error.data);
+          this.presentToast(error.error.data);
+      });
     }
-    
-    this.requestService.postLogin( this.loginUser.usuario, this.loginUser.contrasena );
-
-
 
    }
-    
+   
   }
 
