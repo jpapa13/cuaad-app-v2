@@ -11,7 +11,7 @@ class Login_models extends CI_Model {
 
     public function login($usuario, $contraseña)
     {
-        
+        $this->db->select('usuario.id, usuario.usuario, usuario.contraseña, usuario_detalle.nombre, puesto_cat.nombre as role');
         $this->db->from('usuario');
         $this->db->join('usuario_detalle', 'usuario_detalle.usuario_fk = usuario.id');
         $this->db->join('puesto_cat', 'puesto_cat.id = usuario_detalle.puesto_fk');
@@ -24,13 +24,14 @@ class Login_models extends CI_Model {
     $usuario = $this->db->get()->row();
     if(is_null($usuario)){
         return false;
-    }else{
+    }/*else{
+        Token...
         $token = $usuario->id.' '.$usuario->usuario;
         $token_encriptado = $this->encryption->encrypt($token);
         $fecha_expiracion = modificacionFecha(date('Y-m-d H:i:s'),$this->config->item('sess_expiration'),'second','+');
         $usuario->token = $token_encriptado;
         $usuario->token_expiracion = $fecha_expiracion;
-    }
+    }*/
     return $usuario; 
 
         
