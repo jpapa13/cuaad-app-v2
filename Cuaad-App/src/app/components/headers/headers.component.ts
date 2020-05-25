@@ -32,7 +32,7 @@ export class HeadersComponent implements OnInit {
           text: 'Cambia tu aula',
           icon: 'swap',
           handler: () => {
-            this.navCtrl.navigateRoot('/lugares')
+            this.navCtrl.navigateRoot('/config-agenda')
           }
         }]
       });
@@ -46,7 +46,7 @@ export class HeadersComponent implements OnInit {
           handler: () => {
             console.log('Delete clicked');
             console.log(this.auth.isLogged());
-            this.navCtrl.navigateRoot('/config-agenda')
+            this.navCtrl.navigateRoot('/login')
           }
         }]
       });
