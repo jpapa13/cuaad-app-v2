@@ -12,7 +12,9 @@ const routes: Routes = [
   { path: 'agenda', loadChildren: './pages/agenda/agenda.module#AgendaPageModule' },
   { path: 'eventos', loadChildren: './pages/eventos/eventos.module#EventosPageModule' },
   { path: 'detalle-evento', loadChildren: './pages/detalle-evento/detalle-evento.module#DetalleEventoPageModule' },
-  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' }
+  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },  { path: 'config-agenda', loadChildren: './pages/config-agenda/config-agenda.module#ConfigAgendaPageModule' }
+
+
 ];
 
 @NgModule({

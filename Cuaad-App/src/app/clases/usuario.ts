@@ -5,9 +5,5 @@ export class Usuario {
         public usuario;
         public pass;
 
-    constructor(usuario, pass) {
-        this.usuario = usuario;
-        this.pass = pass;
-    }
     constructor(){}
 }
