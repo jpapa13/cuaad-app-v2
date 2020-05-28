@@ -15,9 +15,10 @@ class Directorio_mdl extends CI_Model{
 	
 	public function obtener_area_persona($parent)
     {   
-		$this->db->select("ud.id, ud.nombre");
+		$this->db->select("ud.id, ud.nombre, p_c.nombre as puesto");
 		$this->db->from('usuario_detalle as ud');
 		$this->db->join('usuario_directorio AS u_d','u_d.usuario_detalle_fk = ud.id','inner');
+        $this->db->join('puesto_cat AS p_c','ud.puesto_fk = p_c.id');
 		$this->db->where('u_d.area_fk',$parent);
         return $this->db->get()->result();
     }/*
