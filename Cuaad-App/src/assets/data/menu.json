@@ -1,24 +1,28 @@
-[
-    {
-      "icon": "home",
-      "name": "Home",
-      "redirecTo": "/inicio"
+[{
+        "icon": "home",
+        "name": "Home",
+        "redirecTo": "/inicio"
     },
     {
-      "icon": "list",
-      "name": "Eventos",
-      "redirecTo": "/eventos"
+        "icon": "list",
+        "name": "Eventos",
+        "redirecTo": "/eventos"
     },
     {
-      "icon": "book",
-      "name": "Agenda",
-      "redirecTo": "/agenda"
+        "icon": "book",
+        "name": "Agenda",
+        "redirecTo": "/agenda"
     },
     {
-      "icon": "locate",
-      "name": "Buscar tu aula",
-      "redirecTo": "/lugares"
+        "icon": "locate",
+        "name": "Buscar tu aula",
+        "redirecTo": "/lugares"
+    },
+    {
+        "icon": "watch",
+        "name": "Horario",
+        "redirecTo": "/lista-horario"
     }
 
 
-  ]
+]

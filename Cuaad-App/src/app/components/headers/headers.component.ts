@@ -44,7 +44,7 @@ export class HeadersComponent implements OnInit {
           text: 'login',
           icon: 'log-in',
           handler: () => {
-            console.log('Delete clicked');
+            
             console.log(this.auth.isLogged());
             this.navCtrl.navigateRoot('/login')
           }
@@ -56,6 +56,12 @@ export class HeadersComponent implements OnInit {
 
   login(){
     this.navCtrl.navigateRoot('/login')
+
+  }
+
+  cambioUsuario(){
+      
+   
 
   }
 

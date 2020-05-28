@@ -54,6 +54,10 @@ export class LoginPage{
     }
 
    }
+
+   btnRegresar(){
+     this.navCtrl.navigateRoot('/inicio')
+   }
    
   }
 

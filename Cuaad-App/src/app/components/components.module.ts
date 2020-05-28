@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { DetalleComponent } from './detalle/detalle.component';
 import { HorarioComponent } from './horario/horario.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-
+import { PersonalComponent } from "./personal/personal.component";
 
 
 
@@ -19,7 +19,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     HeadersComponent,
     MenuComponent,
     DetalleComponent,
-    HorarioComponent
+    HorarioComponent,
+    PersonalComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +32,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     HeadersComponent,
     MenuComponent,
     DetalleComponent,
-    HorarioComponent
+    HorarioComponent,
+    PersonalComponent
   ]
 })
 export class ComponentsModule { }

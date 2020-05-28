@@ -1,5 +1,11 @@
 <ion-content>
+    <ion-header no-border>
+        <ion-toolbar>
 
+            <ion-icon name="close-circle" (click)="btnRegresar()" slot="end" class="ion-padding"></ion-icon>
+
+        </ion-toolbar>
+    </ion-header>
     <form (ngSubmit)="login( flogin )" #flogin="ngForm">
         <ion-grid>
             <ion-row>
@@ -11,7 +17,7 @@
                     </ion-item>
 
                     <ion-item>
-                        <ion-label>Contraseña</ion-label>
+                        <ion-label position="floating">Contraseña</ion-label>
                         <ion-input position="floating" name="contraseña" type="password" [(ngModel)]="usuario.pass" required></ion-input>
                     </ion-item>
 
@@ -24,3 +30,11 @@
     </form>
 
 </ion-content>
+<ion-footer no-border padding>
+    <ion-button (click)="btnRegresar()">
+
+        <ion-icon name="arrow-round-back" color="light"></ion-icon>
+        <ion-label> Inicio</ion-label>
+
+    </ion-button>
+</ion-footer>

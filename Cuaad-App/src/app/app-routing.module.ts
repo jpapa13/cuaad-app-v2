@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -12,7 +13,10 @@ const routes: Routes = [
   { path: 'agenda', loadChildren: './pages/agenda/agenda.module#AgendaPageModule' },
   { path: 'eventos', loadChildren: './pages/eventos/eventos.module#EventosPageModule' },
   { path: 'detalle-evento', loadChildren: './pages/detalle-evento/detalle-evento.module#DetalleEventoPageModule' },
-  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },  { path: 'config-agenda', loadChildren: './pages/config-agenda/config-agenda.module#ConfigAgendaPageModule' }
+  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
+  { path: 'config-agenda', loadChildren: './pages/config-agenda/config-agenda.module#ConfigAgendaPageModule' },  { path: 'lista-horario', loadChildren: './pages/lista-horario/lista-horario.module#ListaHorarioPageModule' }
+
+
 
 
 ];
