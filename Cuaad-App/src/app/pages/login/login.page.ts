@@ -35,7 +35,7 @@ export class LoginPage{
     if(fLogin.invalid) { 
           return;
     }else{   
-      this.requestService.login( this.usuario.usuario, this.usuario.pass ).subscribe((Response: any) => {
+      this.auth.login( this.usuario.usuario, this.usuario.pass ).subscribe((Response: any) => {
         if (Response.status === true) {      
             //this.storage.set('token', Response.data.token);  
             //this.storage.set('token_exp', Response.data.token_expiracion); 
