@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { AgendaPage } from './agenda.page';
 import { ComponentsModule } from '../../components/components.module';
+import { MenuDirectorioComponent } from 'src/app/components/menu-directorio/menu-directorio.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  entryComponents:[
+    MenuDirectorioComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,

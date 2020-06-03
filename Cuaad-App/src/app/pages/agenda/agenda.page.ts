@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HorarioComponent } from '../../components/horario/horario.component';
+import { PopoverController } from '@ionic/angular';
+import { MenuDirectorioComponent } from 'src/app/components/menu-directorio/menu-directorio.component';
+
 
 @Component({
   selector: 'app-agenda',
@@ -8,7 +10,24 @@ import { HorarioComponent } from '../../components/horario/horario.component';
 })
 export class AgendaPage implements OnInit {
 
-  constructor() { }
+  constructor(private popOverCtrl: PopoverController) { }
+
+
+  async mostrarAreas( event ){
+      
+    const popO = await this.popOverCtrl.create({
+        
+      component: MenuDirectorioComponent,
+      event: event,
+      
+    });
+
+    await popO.present();
+
+    const { data } = await popO.onWillDismiss();
+    console.log(data);
+    
+  }
 
   ngOnInit() {
   }

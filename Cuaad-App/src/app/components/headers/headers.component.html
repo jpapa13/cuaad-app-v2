@@ -1,13 +1,15 @@
 <ion-header no-border>
 
     <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title class="ion-text-capitalize">{{ titulo }}</ion-title>
-      <ion-buttons slot="end" (click)="presentActionSheet()">
-        <ion-icon ios="ios-settings" md="md-settings"></ion-icon> 
-      </ion-buttons> 
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="ion-text-capitalize">{{ titulo }}</ion-title>
+        <ion-buttons slot="end" (click)="presentActionSheet()">
+            <ion-button>
+                <ion-icon slot="icon-only" name="settings"></ion-icon>
+            </ion-button>
+        </ion-buttons>
 
-  </ion-toolbar>
+    </ion-toolbar>
 </ion-header>

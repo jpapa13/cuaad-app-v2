@@ -8,6 +8,8 @@ import { DetalleComponent } from './detalle/detalle.component';
 import { HorarioComponent } from './horario/horario.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { PersonalComponent } from "./personal/personal.component";
+import { MenuDirectorioComponent } from './menu-directorio/menu-directorio.component';
+
 
 
 
@@ -20,7 +22,8 @@ import { PersonalComponent } from "./personal/personal.component";
     MenuComponent,
     DetalleComponent,
     HorarioComponent,
-    PersonalComponent
+    PersonalComponent,
+    MenuDirectorioComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +36,8 @@ import { PersonalComponent } from "./personal/personal.component";
     MenuComponent,
     DetalleComponent,
     HorarioComponent,
-    PersonalComponent
+    PersonalComponent,
+    MenuDirectorioComponent
   ]
 })
 export class ComponentsModule { }

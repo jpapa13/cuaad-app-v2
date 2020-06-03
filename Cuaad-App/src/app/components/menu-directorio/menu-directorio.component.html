@@ -1,0 +1,5 @@
+<ion-list>
+    <ion-item *ngFor="let numero of item; let i = index" detail (click)="onClick( i + 1 )">
+        <ion-label> Area {{i + 1}} </ion-label>
+    </ion-item>
+</ion-list>

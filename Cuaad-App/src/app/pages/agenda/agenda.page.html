@@ -1,4 +1,21 @@
-<app-headers titulo="agenda"></app-headers>
+<ion-header no-border>
+
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="ion-text-capitalize">Agenda</ion-title>
+
+        <ion-buttons slot="end">
+            <ion-button (click)="mostrarAreas( $event )">
+                <ion-icon slot="icon-only" name="more"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+
+    </ion-toolbar>
+</ion-header>
+
 
 <ion-content>
 
