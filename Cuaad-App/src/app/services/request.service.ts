@@ -57,10 +57,9 @@ export class RequestService {
       const path =  this.url + 'componentes/aulas';
       return this.https.get(path);
   }
-  login(usuario: string, contraseña: string){
-    const path = this.url + 'LoginCtrl/ingresar/';
-    const data = {usuario, contraseña};
-    return this.https.post(path, data);
+  getDirectorio(){
+    const path =  this.url + 'componentes/directorio/area/obtener_todos';
+      return this.https.get(path);
   }
 }
 
