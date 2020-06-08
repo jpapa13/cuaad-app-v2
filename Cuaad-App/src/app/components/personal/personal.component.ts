@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { DirectorioDetalleComponent } from '../directorio-detalle/directorio-detalle.component';
 
 @Component({
   selector: 'app-personal',
@@ -7,8 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalCtrl: ModalController) { }
 
   ngOnInit() {}
+
+  async verDetalle() {
+
+    const modal = await this.modalCtrl.create({
+     component: DirectorioDetalleComponent,
+     componentProps: {
+
+     }
+   });
+
+    modal.present();
+
+ }
 
 }
