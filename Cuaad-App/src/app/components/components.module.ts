@@ -9,13 +9,15 @@ import { HorarioComponent } from './horario/horario.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { PersonalComponent } from "./personal/personal.component";
 import { MenuDirectorioComponent } from './menu-directorio/menu-directorio.component';
+import { DirectorioDetalleComponent } from './directorio-detalle/directorio-detalle.component';
 
 
 
 
 @NgModule({
   entryComponents: [
-    DetalleComponent
+    DetalleComponent,
+    DirectorioDetalleComponent
   ],
   declarations: [
     HeadersComponent,
@@ -23,7 +25,8 @@ import { MenuDirectorioComponent } from './menu-directorio/menu-directorio.compo
     DetalleComponent,
     HorarioComponent,
     PersonalComponent,
-    MenuDirectorioComponent
+    MenuDirectorioComponent,
+    DirectorioDetalleComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +40,8 @@ import { MenuDirectorioComponent } from './menu-directorio/menu-directorio.compo
     DetalleComponent,
     HorarioComponent,
     PersonalComponent,
-    MenuDirectorioComponent
+    MenuDirectorioComponent,
+    DirectorioDetalleComponent
   ]
 })
 export class ComponentsModule { }
