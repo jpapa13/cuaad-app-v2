@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
+import { DirectorioService } from 'src/app/services/directorio.service'
 
 @Component({
   selector: 'app-menu-directorio',
@@ -8,9 +9,12 @@ import { PopoverController } from '@ionic/angular';
 })
 export class MenuDirectorioComponent implements OnInit {
 
-  item = Array(15);
+  item = this.sDirectorio.cuaad.areas;
 
-  constructor( private popOverCtrl: PopoverController ) { }
+  constructor( private popOverCtrl: PopoverController,
+                private sDirectorio:DirectorioService ) {
+                console.log(this.item);
+                 }
 
   ngOnInit() {}
 
