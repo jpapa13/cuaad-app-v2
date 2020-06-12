@@ -34,7 +34,14 @@ export class HeadersComponent implements OnInit {
           handler: () => {
             this.navCtrl.navigateRoot('/config-agenda')
           }
-        }]
+        },
+      {
+        text: 'Administrar Eventos',
+        icon: 'filing',
+        handler: () => {
+          this.navCtrl.navigateRoot('/eventos-admin')
+        }
+      }]
       });
       await actionsheet.present();
     }else{

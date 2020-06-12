@@ -14,7 +14,8 @@ const routes: Routes = [
   { path: 'eventos', loadChildren: './pages/eventos/eventos.module#EventosPageModule' },
   { path: 'detalle-evento', loadChildren: './pages/detalle-evento/detalle-evento.module#DetalleEventoPageModule' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
-  { path: 'config-agenda', loadChildren: './pages/config-agenda/config-agenda.module#ConfigAgendaPageModule' },  { path: 'lista-horario', loadChildren: './pages/lista-horario/lista-horario.module#ListaHorarioPageModule' }
+  { path: 'config-agenda', loadChildren: './pages/config-agenda/config-agenda.module#ConfigAgendaPageModule' },  { path: 'lista-horario', loadChildren: './pages/lista-horario/lista-horario.module#ListaHorarioPageModule' },
+  { path: 'eventos-admin', loadChildren: './pages/eventos-admin/eventos-admin.module#EventosAdminPageModule' }
 
 
 

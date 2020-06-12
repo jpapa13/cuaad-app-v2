@@ -1,0 +1,81 @@
+<app-headers titulo="Administracion Evento"> </app-headers>
+
+<ion-content>
+
+    <form>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">Nombre del Evento</ion-label>
+                        <ion-input name="NomEvento" type="text" required></ion-input>
+
+
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Fecha de inicio </ion-label>
+                        <ion-datetime placeholder="INICIO" display-format="DD MMMM YYYY" cancelText="Cancelar" doneText="Hecho" (ngModelChange)="fechaIni.toISOString()" (ionChange)="cambioFecha( $event )"></ion-datetime>
+
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Hora de inicio </ion-label>
+                        <ion-datetime display-format="h:mm A" [pickerOptions]="customPickerOptions" (ngModel)="customDate" (ionChange)="cambioFecha( $event )"></ion-datetime>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Fecha de Finalizacion </ion-label>
+                        <ion-datetime placeholder="FINAL" display-format="DD MMMM YYYY" cancelText="Cancelar" doneText="Hecho" (ngModelChange)="fechaFin.toISOString()" (ionChange)="cambioFechaFin( $event )"></ion-datetime>
+
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Hora de Finalizacion </ion-label>
+                        <ion-datetime display-format="h:mm A" [pickerOptions]="customPickerOptions" (ngModel)="customDate" (ionChange)="cambioFecha( $event )"></ion-datetime>
+                    </ion-item>
+
+                    <ion-button expand="full" shape="round" color="dark" (click)="onClick()">
+                        <ion-icon slot="start" name="locate"></ion-icon>
+                        Ubicacion
+                    </ion-button>
+
+                    <ion-button expand="full" shape="round" color="success" (click)="libreria()">
+                        <ion-icon slot="start" name="image"></ion-icon>
+                        Banner
+                    </ion-button>
+
+                    <ion-col>
+                        <ion-card size="3" *ngFor="let image of tempImages">
+                            <img [src]="image">
+                        </ion-card>
+                    </ion-col>
+
+                    <ion-item>
+                        <ion-label position="floating">Descripcion</ion-label>
+                        <ion-textarea></ion-textarea>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Sede</ion-label>
+                        <ion-select interface="popover" placeholder="Select One">
+                            <ion-select-option>Opcion 1</ion-select-option>
+                            <ion-select-option>Opcion 2</ion-select-option>
+                            <ion-select-option>Opcion 3</ion-select-option>
+                            <ion-select-option>Opcion 4</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-button expand="block" fill="outline" type="submit" shape="round">Enviar</ion-button>
+
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+    </form>
+
+</ion-content>

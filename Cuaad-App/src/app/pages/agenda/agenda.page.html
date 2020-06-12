@@ -1,4 +1,4 @@
-<app-headers> Directorio </app-headers>
+<app-headers titulo="Directorio"> </app-headers>
 
 <ion-toolbar>
     <ion-button (click)="mostrarAreas( $event )" color="dark" slot="end">
@@ -6,57 +6,81 @@
     </ion-button>
 </ion-toolbar>
 
+
 <ion-content>
-    <ion-title color="dark">{{sDirectorio.actual.nombre}}
-        <ion-text *ngIf="sDirectorio.actual.personal.length == 0" color="secondary">
-                <p>[No hay personal]</p> 
-        </ion-text>
-    </ion-title>
-    <div *ngFor="let persona of sDirectorio.actual.personal">
-        <ion-title>{{persona.puesto}}</ion-title>
-        <ion-card (click)="verDetalle()">
-            <ion-item>
-                <ion-avatar slot="start">
-                    <img src="../../../assets/img/francisco-madariaga.jpg">
-                </ion-avatar>
-                <ion-label> {{persona.nombre}} <br> primero </ion-label>
-            </ion-item>
-        </ion-card>
-    </div>
-    <div *ngFor="let area of sDirectorio.actual.areas">
-        <ion-title color="primary">{{area.nombre}}
-            <ion-text *ngIf="area.personal.length == 0" color="secondary">
-                  <p>[No hay personal]</p> 
+    <ion-grid>
+        <ion-title color="dark">{{sDirectorio.actual.nombre}}
+            <ion-text *ngIf="sDirectorio.actual.personal.length == 0" color="secondary">
+                <p>[No hay personal]</p>
             </ion-text>
         </ion-title>
-        <div *ngFor="let persona of area.personal">
-            <ion-title>{{persona.puesto}}</ion-title>
-            <ion-card (click)="verDetalle()">
-                <ion-item>
-                    <ion-avatar slot="start">
-                        <img src="../../../assets/img/francisco-madariaga.jpg">
-                    </ion-avatar>
-                    <ion-label> {{persona.nombre}} <br> primero </ion-label>
-                </ion-item>
-            </ion-card>
-        </div>
-        <div *ngFor="let subarea of area.areas ">
-            <ion-title background-color="dark">{{subarea.nombre}}
-                <ion-text *ngIf="subarea.personal.length == 0" color="secondary">
-                    <p>[No hay personal]</p> 
-                </ion-text>
-            </ion-title>
-            <div *ngFor="let persona of subarea.personal">
-               <ion-title>{{persona.puesto}}</ion-title>
+
+        <ion-row>
+            <ion-col size="12" size-xl="3" size-lg="4" size-md="4" size-sm="6" *ngFor="let persona of sDirectorio.actual.personal">
+
+                <ion-title>{{persona.puesto}}</ion-title>
                 <ion-card (click)="verDetalle()">
                     <ion-item>
                         <ion-avatar slot="start">
                             <img src="../../../assets/img/francisco-madariaga.jpg">
                         </ion-avatar>
-                        <ion-label> {{persona.nombre}} <br> segundo </ion-label>
+                        <ion-label> {{persona.nombre}} <br> primero </ion-label>
                     </ion-item>
                 </ion-card>
-            </div>
-        </div>
-    </div>
-</ion-content>  
+
+            </ion-col>
+        </ion-row>
+
+
+
+
+        <ion-row>
+            <ion-col size="12" size-xl="3" size-lg="4" size-md="4" size-sm="6" *ngFor="let area of sDirectorio.actual.areas">
+                <ion-title color="primary">{{area.nombre}}
+                    <ion-text *ngIf="area.personal.length == 0" color="secondary">
+                        <p>[No hay personal]</p>
+                    </ion-text>
+                </ion-title>
+
+                <ion-row>
+                    <ion-col *ngFor="let persona of area.personal">
+
+                        <ion-title>{{persona.puesto}}</ion-title>
+                        <ion-card (click)="verDetalle()">
+                            <ion-item>
+                                <ion-avatar slot="start">
+                                    <img src="../../../assets/img/francisco-madariaga.jpg">
+                                </ion-avatar>
+                                <ion-label> {{persona.nombre}} <br> primero </ion-label>
+                            </ion-item>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col *ngFor="let subarea of area.areas ">
+
+
+                        <ion-title background-color="dark">{{subarea.nombre}}
+                            <ion-text *ngIf="subarea.personal.length == 0" color="secondary">
+                                <p>[No hay personal]</p>
+                            </ion-text>
+                        </ion-title>
+                        <div *ngFor="let persona of subarea.personal">
+                            <ion-title>{{persona.puesto}}</ion-title>
+                            <ion-card (click)="verDetalle()">
+                                <ion-item>
+                                    <ion-avatar slot="start">
+                                        <img src="../../../assets/img/francisco-madariaga.jpg">
+                                    </ion-avatar>
+                                    <ion-label> {{persona.nombre}} <br> segundo </ion-label>
+                                </ion-item>
+                            </ion-card>
+                        </div>
+
+                    </ion-col>
+                </ion-row>
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
