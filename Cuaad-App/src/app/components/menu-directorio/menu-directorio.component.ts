@@ -19,7 +19,8 @@ export class MenuDirectorioComponent implements OnInit {
   ngOnInit() {}
 
   onClick( area: any){
-    
+    console.log(area)
+    this.sDirectorio.actual = area;    
     this.popOverCtrl.dismiss({
       item: area
     })

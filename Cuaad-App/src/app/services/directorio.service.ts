@@ -8,11 +8,13 @@ import { ToastController } from '@ionic/angular';
   providedIn: 'root'
 })
 export class DirectorioService {
-	cuaad : Area;
+	public cuaad : Area;
+	public actual : Area;
   constructor(private request: RequestService,
   			  private toastController: ToastController) { 
   	this.cuaad = new Area("cuaad");
   	this.getDirectorio();
+  	this.actual = this.cuaad
   }
 
   async presentToast(messg) {
@@ -42,12 +44,12 @@ export class DirectorioService {
   getArea(parent, area:Area){
   	personaTemp: Persona;
   	areaTemp : Area;
-  	parent.personal.forEach(persona => { 
-  		this.personaTemp = new Persona(persona.nombre, persona.puesto);
+  	parent.personal.forEach( function(persona) { 
+  		this.personaTemp = new Persona( persona.nombre, persona.puesto);
   		area.personal.push(this.personaTemp);
-  	});
+  	},this);
   	if(parent.hoja !== null){
-  		Object.keys(parent.hoja).forEach(function(key) {
+  		Object.keys(parent.hoja).forEach( function(key) {
   			this.areaTemp = new Area(key);
 	  		area.areas.push(this.areaTemp);
 	  		this.getArea(parent.hoja[key],this.areaTemp);		  	
@@ -56,4 +58,5 @@ export class DirectorioService {
   		return;
   	}
   }
+
 }

@@ -1,10 +1,13 @@
 <ion-list>
-    <div *ngFor="let area of item; let i = index" detail (click)="onClick( i + 1 )">
-    	<ion-item-divider color="dark">
-    		<ion-label> Area {{area.nombre}}  </ion-label>
+	<ion-item color="primary" detail (click)="onClick( sDirectorio.cuaad )">
+    		<ion-label> {{sDirectorio.cuaad.nombre}}  </ion-label>
+    	</ion-item>
+    <div *ngFor="let area of item; let i = index">
+    	<ion-item-divider color="dark" detail (click)="onClick( area )">
+    		<ion-label> {{area.nombre}}  </ion-label>
     	</ion-item-divider>
-    	<ion-item *ngFor="let subarea of area.areas; let i = index" detail (click)="onClick( i + 1 )">
-    		<ion-label> Sub Area {{subarea.nombre}}  </ion-label>
+    	<ion-item *ngFor="let subarea of area.areas; let i = index" detail (click)="onClick( subarea )">
+    		<ion-label> {{subarea.nombre}}  </ion-label>
     	</ion-item>
         
     </div>
