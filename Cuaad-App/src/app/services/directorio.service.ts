@@ -45,7 +45,7 @@ export class DirectorioService {
   	personaTemp: Persona;
   	areaTemp : Area;
   	parent.personal.forEach( function(persona) { 
-  		this.personaTemp = new Persona( persona.nombre, persona.puesto);
+  		this.personaTemp = new Persona( persona.nombre, persona.puesto, persona.foto);
   		area.personal.push(this.personaTemp);
   	},this);
   	if(parent.hoja !== null){

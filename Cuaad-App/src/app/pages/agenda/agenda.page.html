@@ -9,7 +9,7 @@
 
 <ion-content>
     <ion-grid>
-        <ion-title color="dark">{{sDirectorio.actual.nombre}}
+        <ion-title color="dark"><h1>{{sDirectorio.actual.nombre}}</h1>
             <ion-text *ngIf="sDirectorio.actual.personal.length == 0" color="secondary">
                 <p>[No hay personal]</p>
             </ion-text>
@@ -22,7 +22,8 @@
                 <ion-card (click)="verDetalle()">
                     <ion-item>
                         <ion-avatar slot="start">
-                            <img src="../../../assets/img/francisco-madariaga.jpg">
+                            <img *ngIf="persona.foto else noFoto" src="../../../assets/img/{{persona.foto}}">
+                            <ng-template #noFoto><ion-icon name="contact" size="large"></ion-icon></ng-template>
                         </ion-avatar>
                         <ion-label> {{persona.nombre}} <br> primero </ion-label>
                     </ion-item>
@@ -49,7 +50,9 @@
                         <ion-card (click)="verDetalle()">
                             <ion-item>
                                 <ion-avatar slot="start">
-                                    <img src="../../../assets/img/francisco-madariaga.jpg">
+                                    <img *ngIf="persona.foto else noFoto" src="../../../assets/img/{{persona.foto}}">
+                            <ng-template #noFoto><ion-icon name="contact" size="large"></ion-icon></ng-template>
+
                                 </ion-avatar>
                                 <ion-label> {{persona.nombre}} <br> primero </ion-label>
                             </ion-item>
@@ -70,7 +73,9 @@
                             <ion-card (click)="verDetalle()">
                                 <ion-item>
                                     <ion-avatar slot="start">
-                                        <img src="../../../assets/img/francisco-madariaga.jpg">
+                                        <img *ngIf="persona.foto else noFoto" src="../../../assets/img/{{persona.foto}}">
+                            <ng-template #noFoto><ion-icon name="contact" size="large"></ion-icon></ng-template>
+
                                     </ion-avatar>
                                     <ion-label> {{persona.nombre}} <br> segundo </ion-label>
                                 </ion-item>

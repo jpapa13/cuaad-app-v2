@@ -64,7 +64,7 @@ class Directorio extends REST_Controller {
         }    
     }
 	public function obtener_area_todos_get(){
-			$raiz = 5; //id de nodo raiz del árbol de directorio
+			//$raiz = 5; //id de nodo raiz del árbol de directorio
             $respuesta = $this->Directorio_mdl->obtener_area($this->post('parent'));
             if($respuesta !== FALSE){
 				$res = [];
