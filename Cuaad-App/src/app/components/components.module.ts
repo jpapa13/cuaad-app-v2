@@ -7,10 +7,10 @@ import { RouterModule } from '@angular/router';
 import { DetalleComponent } from './detalle/detalle.component';
 import { HorarioComponent } from './horario/horario.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { PersonalComponent } from "./personal/personal.component";
 import { MenuDirectorioComponent } from './menu-directorio/menu-directorio.component';
 import { DirectorioDetalleComponent } from './directorio-detalle/directorio-detalle.component';
 import { MapaComponent } from './mapa/mapa.component';
+import { DirectorioService } from 'src/app/services/directorio.service';
 
 
 
@@ -26,26 +26,27 @@ import { MapaComponent } from './mapa/mapa.component';
     MenuComponent,
     DetalleComponent,
     HorarioComponent,
-    PersonalComponent,
     MenuDirectorioComponent,
     DirectorioDetalleComponent,
-    MapaComponent
+    MapaComponent,
+    DirectorioService
   ],
   imports: [
     CommonModule,
     IonicModule,
     RouterModule,
-    DragDropModule
+    DragDropModule,
+    
   ],
   exports: [
     HeadersComponent,
     MenuComponent,
     DetalleComponent,
     HorarioComponent,
-    PersonalComponent,
     MenuDirectorioComponent,
     DirectorioDetalleComponent,
-    MapaComponent
+    MapaComponent,
+    DirectorioService
   ]
 })
 export class ComponentsModule { }

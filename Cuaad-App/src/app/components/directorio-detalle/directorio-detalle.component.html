@@ -1,3 +1,26 @@
-<p>
-  directorio-detalle works!
-</p>
+<ion-header>
+    <ion-buttons>
+        <ion-button slot="end" (click)="regresar()">
+            <ion-icon slot="icon-only" name="close"></ion-icon>
+
+        </ion-button>
+    </ion-buttons>
+</ion-header>
+
+<ion-content>
+    <ion-title>
+        <h1>
+            {{sDirectorio.actual.nombre}}
+            <ion-text *ngIf="sDirectorio.actual.personal.length == 0" color="warning">
+                <p>[No hay personal]</p>
+            </ion-text>
+        </h1>
+    </ion-title>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
