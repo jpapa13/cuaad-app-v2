@@ -10,7 +10,6 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MenuDirectorioComponent } from './menu-directorio/menu-directorio.component';
 import { DirectorioDetalleComponent } from './directorio-detalle/directorio-detalle.component';
 import { MapaComponent } from './mapa/mapa.component';
-import { DirectorioService } from 'src/app/services/directorio.service';
 
 
 
@@ -28,15 +27,13 @@ import { DirectorioService } from 'src/app/services/directorio.service';
     HorarioComponent,
     MenuDirectorioComponent,
     DirectorioDetalleComponent,
-    MapaComponent,
-    DirectorioService
+    MapaComponent
   ],
   imports: [
     CommonModule,
     IonicModule,
     RouterModule,
-    DragDropModule,
-    
+    DragDropModule
   ],
   exports: [
     HeadersComponent,
@@ -45,8 +42,7 @@ import { DirectorioService } from 'src/app/services/directorio.service';
     HorarioComponent,
     MenuDirectorioComponent,
     DirectorioDetalleComponent,
-    MapaComponent,
-    DirectorioService
+    MapaComponent
   ]
 })
 export class ComponentsModule { }

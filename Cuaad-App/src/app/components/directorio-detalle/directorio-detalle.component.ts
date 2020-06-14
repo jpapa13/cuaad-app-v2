@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DirectorioService } from 'src/app/services/directorio.service';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-directorio-detalle',
@@ -7,8 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DirectorioDetalleComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sDirectorio: DirectorioService,
+              private modalCtrl: ModalController) { }
 
   ngOnInit() {}
+
+  async regresar(){
+    
+    await this.modalCtrl.dismiss();
+
+  }
 
 }
