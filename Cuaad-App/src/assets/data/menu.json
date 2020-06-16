@@ -1,6 +1,6 @@
 [{
         "icon": "home",
-        "name": "Home",
+        "name": "Inicio",
         "redirecTo": "/inicio"
     },
     {
@@ -13,11 +13,7 @@
         "name": "Agenda",
         "redirecTo": "/agenda"
     },
-    {
-        "icon": "locate",
-        "name": "Buscar tu aula",
-        "redirecTo": "/lugares"
-    },
+
     {
         "icon": "watch",
         "name": "Horario",

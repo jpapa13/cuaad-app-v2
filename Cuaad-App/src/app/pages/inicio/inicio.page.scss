@@ -1,20 +1,24 @@
 .welcome-card img {
     max-height: 35vh;
     overflow: hidden;
-  }
-  
-  
-  
-  .slide-img-padding{
-    padding:  40px;
-  }
-  img{
+}
+
+.slide-img-padding {
+    padding: 40px;
+}
+
+img {
     margin-bottom: 60;
-  }
+}
 
-  .image-slide {
-
+.image-slide {
     padding: 5px;
+}
 
+ion-title {
+    text-align: center;
+}
 
-  }
+#sedes {
+    text-align: center;
+}

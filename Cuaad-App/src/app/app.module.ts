@@ -21,7 +21,9 @@ import { Camera} from '@ionic-native/camera/ngx';
   entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({
+      mode: 'md'
+    }),
     AppRoutingModule,
     ComponentsModule,
     HttpClientModule,

@@ -21,7 +21,7 @@
 
                 <ion-title>{{persona.puesto}}</ion-title>
                 <ion-card (click)="verDetalle()">
-                    <ion-item>
+                    <ion-item color="dark">
                         <ion-avatar slot="start">
                             <img *ngIf="persona.foto else noFoto" src="../../../assets/img/{{persona.foto}}">
                             <ng-template #noFoto>
@@ -51,7 +51,7 @@
 
                         <ion-title>{{persona.puesto}}</ion-title>
                         <ion-card (click)="verDetalle()">
-                            <ion-item>
+                            <ion-item color="dark">
                                 <ion-avatar slot="start">
                                     <img *ngIf="persona.foto else noFoto" src="../../../assets/img/{{persona.foto}}">
                                     <ng-template #noFoto>
@@ -76,7 +76,7 @@
                         <div *ngFor="let persona of subarea.personal">
                             <ion-title>{{persona.puesto}}</ion-title>
                             <ion-card (click)="verDetalle()">
-                                <ion-item>
+                                <ion-item color="dark">
                                     <ion-avatar slot="start">
                                         <img *ngIf="persona.foto else noFoto" src="../../../assets/img/{{persona.foto}}">
                                         <ng-template #noFoto>

@@ -1,14 +1,24 @@
+$mode: "ios";
 ion-title {
     text-align: center;
     padding: 15px;
-    font-size: 40px;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
 }
 
 img {
-    width: 80%;
+    border-radius: 10%;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 ion-label {
     font-size: 30px;
     padding-right: 70px;
+    color: rgb(0, 0, 0);
+}
+
+ion-buttons {
+    background: rgb(12, 132, 212);
 }

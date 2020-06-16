@@ -1,11 +1,35 @@
-<app-headers titulo="Cuaad-app"></app-headers>
+<app-headers titulo="Cuaad App"></app-headers>
 
 <ion-content>
-    <ion-slides pager="ios">
-        <ion-slide *ngFor="let item of galeria.archivo">
-            <div class="image-slide">
-                <img src={{item.ruta}} (click)="verDetalle()">
-            </div>
-        </ion-slide>
-    </ion-slides>
+    <ion-grid>
+        <ion-slides pager="ios">
+            <ion-slide *ngFor="let item of galeria.archivo">
+                <div class="image-slide">
+                    <img src={{item.ruta}} (click)="verDetalle()">
+                </div>
+            </ion-slide>
+        </ion-slides>
+
+
+    </ion-grid>
 </ion-content>
+
+<ion-footer no-border>
+    <ion-row>
+        <ion-col id="sedes">
+            <ion-title> Sede CUAAD Huentitán</ion-title>
+            <p>Calzada Independencia Norte No. 5075, <br> Sector Hidalgo C.P. 44250 <br> Huentitán El Bajo, Jal., Méx. <br> Tel. 1202-3000</p>
+
+            <ion-title> Sede Artes Plásticas</ion-title>
+            <p>Ex Claustro de Santa María de Gracia, <br> Extensión Belén 120, <br> Centro Histórico, Guadalajara, Jal., Méx. <br> Tels. 1203-5442, 1203-5443</p>
+
+            <ion-title> Sede Música</ion-title>
+            <p>Ex Claustro de San Agustín, <br> Extensión Morelos No. 191, <br> Centro Histórico, Guadalajara, Jal., Méx. <br> Tels. 1203-5436, 1203-5437, 1203-5439</p>
+        </ion-col>
+    </ion-row>
+    <ion-toolbar>
+        <ion-title>
+            Universidad de Guadalajara.
+        </ion-title>
+    </ion-toolbar>
+</ion-footer>
